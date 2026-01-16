@@ -1,0 +1,83 @@
+// 감사인사 텍스트 섹션 (100vh)
+.thanks-text-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.lazy-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .thanks {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+
+    h2 {
+      margin-bottom: 3rem;
+    }
+
+    .content {
+      .thanks-text {
+        .quote {
+          font-size: 1.1rem;
+          line-height: 2.2;
+          color: var(--text-dark);
+          margin-bottom: 1.5rem;
+          font-style: italic;
+        }
+
+        .quote-author {
+          font-size: 0.95rem;
+          line-height: 2;
+          color: var(--text-light);
+          margin-bottom: 2.5rem;
+        }
+
+        .message {
+          font-size: 1.05rem;
+          line-height: 2;
+          color: var(--text-dark);
+        }
+      }
+    }
+  }
+}
+
+// 감사인사 이미지 섹션 (100vh, 풀스크린)
+.thanks-image-section {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.lazy-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .thanks-image {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+  }
+}
+

@@ -1,0 +1,83 @@
+:root {
+  --primary-color: #d4a574;
+  --primary-light: #f5e6d3;
+  --text-dark: #2c2c2c;
+  --text-light: #666666;
+  --bg-white: #ffffff;
+  --bg-cream: #faf9f7;
+  --border-color: #e8e8e8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
+  &.modal-open {
+    overflow-y: hidden;
+  }
+}
+
+.app {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: var(--bg-white);
+}
+
+.section {
+  padding: 3rem 1.5rem;
+  margin: 2rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.lazy-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 부부소개 섹션 배경색
+.couple-info {
+  background-color: #fafafa;
+  padding: 3rem 1.5rem;
+  margin: 2rem 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+}
+
+@media (max-width: 500px) {
+  .section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}

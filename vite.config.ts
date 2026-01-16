@@ -1,0 +1,29 @@
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import svgr from "vite-plugin-svgr"
+import { createHtmlPlugin } from "vite-plugin-html"
+
+const distFolder = "build"
+// GitHub Pages 배포 시: const base = "/sojungbooboo/"
+// 로컬 개발 시: const base = "/"
+const base = "/"
+
+export default defineConfig({
+  plugins: [
+    react(),
+    svgr(),
+    createHtmlPlugin({
+      inject: {
+        data: {
+          GROOM_NAME: "JUNGHWA",
+          BRIDE_NAME: "SOHYUN",
+          DESCRIPTION: "2026년 3월 28일 토요일 오전 11시 30분 해군호텔 W웨딩홀",
+        },
+      },
+    }),
+  ],
+  server: { port: 3000 },
+  build: { outDir: distFolder },
+  base,
+})
+

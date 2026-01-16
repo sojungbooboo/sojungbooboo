@@ -1,0 +1,51 @@
+.couple-info {
+  text-align: center;
+
+  .content {
+    max-width: 500px;
+    margin: 0 auto;
+
+    .groom,
+    .bride {
+      margin-bottom: 2rem;
+
+      .parents {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        margin-bottom: 1rem;
+      }
+
+      .name-section {
+        .korean-name {
+          font-size: 1.3rem;
+          font-weight: 500;
+          color: var(--text-dark);
+          margin-bottom: 0.5rem;
+        }
+
+        .birthdate {
+          font-size: 0.95rem;
+          color: var(--text-light);
+          margin-bottom: 0.3rem;
+        }
+
+        .english-name {
+          font-size: 1rem;
+          color: var(--primary-color);
+          font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+        }
+      }
+    }
+
+    .divider {
+      margin: 2rem 0;
+      font-size: 20px;
+      color: var(--primary-color);
+      font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
+      font-weight: 400;
+    }
+  }
+}
+

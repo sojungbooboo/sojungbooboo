@@ -1,0 +1,58 @@
+.location {
+  text-align: center;
+
+  .content {
+    .map-container {
+      width: 100%;
+      height: 300px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+
+    .venue-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
+    }
+
+    .address-section {
+      .address {
+        font-size: 1rem;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+      }
+
+      .copy-button {
+        padding: 0.75rem 1.5rem;
+        background-color: var(--primary-color);
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover:not(.copied) {
+          background-color: #c49564;
+        }
+
+        &.copied {
+          background-color: #e8d5c4;
+          color: var(--text-dark);
+          cursor: default;
+        }
+      }
+    }
+  }
+}
+
