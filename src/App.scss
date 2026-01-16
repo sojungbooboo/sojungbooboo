@@ -5,6 +5,10 @@
   --text-light: #666666;
   --bg-white: #ffffff;
   --bg-cream: #faf9f7;
+  --bg-pink: #fef7f5;
+  --bg-beige: #faf8f6;
+  --bg-gold: #fefaf0;
+  --bg-gray: #f8f8f8;
   --border-color: #e8e8e8;
 }
 
@@ -38,8 +42,11 @@ body {
 }
 
 .section {
-  padding: 3rem 1.5rem;
-  margin: 2rem 0;
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -50,11 +57,41 @@ body {
   }
 }
 
-// 부부소개 섹션 배경색
+// 섹션별 배경색
+.venue-section {
+  background-color: var(--bg-pink);
+}
+
+.date-section {
+  background-color: var(--bg-white);
+}
+
 .couple-info {
-  background-color: #fafafa;
-  padding: 3rem 1.5rem;
-  margin: 2rem 0;
+  background-color: var(--bg-cream);
+}
+
+.countdown-section {
+  background-color: var(--bg-gold);
+}
+
+.gallery-section {
+  background-color: var(--bg-white);
+}
+
+.location-section {
+  background-color: var(--bg-beige);
+}
+
+.transportation-section {
+  background-color: var(--bg-gray);
+}
+
+.notice-section {
+  background-color: var(--bg-pink);
+}
+
+.accounts-section {
+  background-color: var(--bg-white);
 }
 
 h1,
@@ -73,11 +110,12 @@ h2 {
 
 @media (max-width: 500px) {
   .section {
-    padding: 2.5rem 1.25rem;
+    padding: 3rem 1.25rem;
+    min-height: 100vh;
   }
 
   h2 {
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 }

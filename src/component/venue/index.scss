@@ -1,11 +1,17 @@
 .venue {
   text-align: center;
+  width: 100%;
+
+  h2 {
+    margin-bottom: 3rem;
+  }
 
   .content {
     .venue-name {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: var(--text-dark);
       font-weight: 500;
+      line-height: 1.6;
     }
   }
 }

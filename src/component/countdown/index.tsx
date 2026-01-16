@@ -51,7 +51,7 @@ export const Countdown = () => {
         <div className="timer">
           <div className="time-unit">
             <div className="value">
-              {timeLeft.days.toString().padStart(3, "0")}
+              {timeLeft.days.toString().padStart(2, "0")}
             </div>
             <div className="label">DAY</div>
           </div>

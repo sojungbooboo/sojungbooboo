@@ -1,11 +1,17 @@
 .date-info {
   text-align: center;
+  width: 100%;
+
+  h2 {
+    margin-bottom: 3rem;
+  }
 
   .content {
     .date {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       color: var(--text-dark);
       font-weight: 400;
+      line-height: 1.8;
     }
   }
 }
