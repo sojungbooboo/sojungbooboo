@@ -67,13 +67,59 @@ export const Location = () => {
           </div>`,
         })
 
+        // 화살표 제거 함수
+        const removeArrow = () => {
+          setTimeout(() => {
+            // 카카오맵 인포윈도우의 화살표 요소 찾아서 제거
+            const infoWindowElements = document.querySelectorAll('.info')
+            infoWindowElements.forEach((info: any) => {
+              // 화살표는 보통 ::before, ::after 또는 하위 요소로 존재
+              if (info) {
+                // 모든 하위 요소 중 화살표 관련 스타일 제거
+                const style = info.getAttribute('style') || ''
+                if (style.includes('::before') || style.includes('::after')) {
+                  // CSS로 화살표 숨기기
+                }
+                
+                // 화살표 요소 직접 찾아서 제거 시도
+                const arrow = info.querySelector('[class*="arrow"]') || 
+                             info.querySelector('div[style*="position"]')
+                if (arrow) {
+                  arrow.remove()
+                }
+              }
+            })
+
+            // 전역 스타일로 화살표 숨기기
+            if (!document.getElementById('kakao-map-arrow-hide')) {
+              const style = document.createElement('style')
+              style.id = 'kakao-map-arrow-hide'
+              style.textContent = `
+                .info::before,
+                .info::after,
+                .info div[class*="arrow"],
+                div[class*="InfoWindow"]::before,
+                div[class*="InfoWindow"]::after,
+                div[class*="InfoWindow"] div[class*="arrow"] {
+                  display: none !important;
+                  visibility: hidden !important;
+                  opacity: 0 !important;
+                }
+              `
+              document.head.appendChild(style)
+            }
+          }, 100)
+        }
+
         // 마커 클릭 시 인포윈도우 표시
         kakao.maps.event.addListener(marker, "click", function () {
           infowindow.open(map, marker)
+          removeArrow()
         })
 
         // 초기에 인포윈도우 표시
         infowindow.open(map, marker)
+        removeArrow()
 
         setMapLoaded(true)
         return true

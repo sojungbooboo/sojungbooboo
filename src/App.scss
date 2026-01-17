@@ -117,6 +117,24 @@ body {
   background-color: var(--bg-white);
 }
 
+// 카카오맵 인포윈도우 화살표 제거
+.info-arrow,
+div[class*="arrow"] {
+  &[style*="position: absolute"],
+  &[style*="background"] {
+    display: none !important;
+  }
+}
+
+// 카카오맵 인포윈도우 커스텀 스타일
+.kakao-map {
+  :global(.info-arrow),
+  :global(div[class*="arrow"]) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
 h1,
 h2,
 h3 {
