@@ -82,24 +82,17 @@ export const Cover = () => {
                     )
                   })}
                   {/* "!" 느낌표는 별도로 처리 */}
-                  {exclamationMark && (() => {
-                    // "We Got Married"까지의 글자 수 계산
-                    const marriedCharsCount = prevCharsCount + displayLine.length
-                    // "!"는 animatedChars 배열에 포함되어 있거나, 길이가 marriedCharsCount보다 크면 표시
-                    const showExclamation = animatedChars.includes("!") || animatedChars.length > marriedCharsCount
-                    
-                    return (
-                      <span
-                        className={`brush-char ${showExclamation ? "visible" : ""}`}
-                        style={{
-                          transitionDelay: `0s`, // "!"는 이미 0.5초 딜레이 후 추가되므로 transitionDelay는 0
-                          '--zigzag-offset': `${marriedCharsCount % 2 === 0 ? -3 : 3}px`,
-                        } as React.CSSProperties}
-                      >
-                        {exclamationMark}
-                      </span>
-                    )
-                  })()}
+                  {exclamationMark && (
+                    <span
+                      className={`brush-char ${animatedChars.includes("!") ? "visible" : ""}`}
+                      style={{
+                        transitionDelay: `${(prevCharsCount + displayLine.length) * 0.1 + 0.5}s`, // 0.5초 딜레이 추가
+                        '--zigzag-offset': `${(prevCharsCount + displayLine.length) % 2 === 0 ? -3 : 3}px`,
+                      } as React.CSSProperties}
+                    >
+                      {exclamationMark}
+                    </span>
+                  )}
                 </div>
               )
             })}
