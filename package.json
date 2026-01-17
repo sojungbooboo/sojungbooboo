@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && git add docs && git commit -m 'Deploy to GitHub Pages' && git push"
   },
   "type": "module",
   "dependencies": {
@@ -29,7 +30,8 @@
     "@types/eslint": "^8",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20"
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "gh-pages": "^6.1.1"
   }
 }
 

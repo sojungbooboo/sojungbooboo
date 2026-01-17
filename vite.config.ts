@@ -3,10 +3,10 @@ import react from "@vitejs/plugin-react"
 import svgr from "vite-plugin-svgr"
 import { createHtmlPlugin } from "vite-plugin-html"
 
-const distFolder = "build"
+const distFolder = "docs"
 // GitHub Pages 배포 시: const base = "/sojungbooboo/"
 // 로컬 개발 시: const base = "/"
-const base = "/"
+const base = "/sojungbooboo/"
 
 export default defineConfig({
   plugins: [
