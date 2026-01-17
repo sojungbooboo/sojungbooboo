@@ -23,9 +23,12 @@ export const Location = () => {
   }
 
   // 카카오맵 API 로드 대기 및 초기화
+  // TODO: 카카오맵 API 과금 문제로 인해 임시 주석처리
+  // 주석 해제하려면 아래 주석 블록을 제거하고 주석처리된 initMap 코드의 주석을 해제하세요
   useEffect(() => {
     if (!mapContainer.current) return
-
+    // 카카오맵 API 호출 주석처리 - 주석 해제하려면 아래 주석 블록을 제거하세요
+    /* KAKAO_MAP_API_START
     const initMap = () => {
       if (!mapContainer.current || !window.kakao || !window.kakao.maps) {
         return false
@@ -155,14 +158,19 @@ export const Location = () => {
     return () => {
       clearInterval(checkKakaoAPI)
     }
+    KAKAO_MAP_API_END */
+    // 카카오맵 API 주석처리 완료 - 주석 해제하려면 위 주석 블록을 제거하고 아래 주석을 해제하세요
   }, [])
 
   return (
     <div className="location">
-      <h2>오시는 길</h2>
+      <h2 className="english-title">Location</h2>
       <div className="content">
         <div className="map-container">
-          <div ref={mapContainer} className="kakao-map" />
+          {/* 카카오맵 API 주석처리로 인해 빈 네모박스 표시 - 주석 해제 시 지도가 표시됩니다 */}
+          <div ref={mapContainer} className="kakao-map" style={{ backgroundColor: '#f5f5f5', border: '1px solid #ddd', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999', fontSize: '0.9rem' }}>
+            Map (카카오맵 API 주석처리됨)
+          </div>
         </div>
         <div className="venue-name">{LOCATION}</div>
         <div className="address-section">

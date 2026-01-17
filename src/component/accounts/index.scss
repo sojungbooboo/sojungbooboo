@@ -65,6 +65,15 @@
     padding-top: 2rem;
     border-top: 1px solid var(--border-color);
 
+    .share-title {
+      font-family: 'Playfair Display', 'Gowun Batang', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      text-align: center;
+    }
+
     h3 {
       font-size: 1.3rem;
       margin-bottom: 1.5rem;
@@ -93,7 +102,9 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
         .icon {
-          font-size: 1.2rem;
+          font-size: 0.9rem;
+          color: #ffffff;
+          opacity: 0.9;
         }
 
         &.calendar-button {
@@ -166,6 +177,8 @@
         font-size: 0.9rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        min-width: 60px; // 복사/복사됨 텍스트 변경 시 width 고정
+        text-align: center;
 
         &:hover:not(.copied) {
           background-color: #c49564;

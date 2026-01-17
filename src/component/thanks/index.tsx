@@ -6,7 +6,7 @@ export const Thanks = () => {
     <>
       <LazyDiv className="thanks-text-section">
         <div className="thanks">
-          <h2>감사인사</h2>
+          <h2 className="english-title">Thanks</h2>
           <div className="content">
             <div className="thanks-text">
               <p className="quote">

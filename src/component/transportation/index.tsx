@@ -3,8 +3,8 @@ import './index.scss';
 export const Transportation = () => {
   return (
     <div className='transportation'>
-      <h2>교통 안내</h2>
       <div className='divider'></div>
+      <h2 className="english-title">Transportation</h2>
       <div className='content'>
         <div className='transport-section'>
           <h3>버스</h3>

@@ -146,6 +146,12 @@ h2 {
   text-align: center;
   margin-bottom: 2rem;
   color: var(--text-dark);
+
+  &.english-title {
+    font-family: 'Playfair Display', 'Gowun Batang', serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
 }
 
 @media (max-width: 500px) {

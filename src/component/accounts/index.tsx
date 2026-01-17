@@ -124,7 +124,7 @@ export const Accounts = () => {
 
   return (
     <div className="accounts">
-      <h2>마음 전하실 곳</h2>
+      <h2 className="english-title">Share</h2>
       <div className="description">
         <p>참석이 어려우신 분들을 위해 기재했습니다</p>
         <p>너그러운 마음으로 양해 부탁드립니다</p>
@@ -143,18 +143,19 @@ export const Accounts = () => {
       </div>
       
       <div className="share-section">
-        <h3>청첩장 공유하기</h3>
+        <h2 className="share-title">Share</h2>
         <div className="share-buttons">
           <button className="share-button calendar-button" onClick={handleAddToCalendar}>
             <span>캘린더 등록하기</span>
-            <span className="icon">📅</span>
+            <i className="fas fa-calendar icon"></i>
           </button>
           <button
             className={`share-button copy-button ${copiedUrl ? "copied" : ""}`}
             onClick={handleCopyUrl}
+            style={{ minWidth: '200px' }} // 복사됨 텍스트 변경 시 width 고정
           >
             <span>{copiedUrl ? "복사됨" : "청첩장 주소 복사하기"}</span>
-            <span className="icon">📋</span>
+            <i className="fas fa-clipboard icon"></i>
           </button>
         </div>
       </div>
