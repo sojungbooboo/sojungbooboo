@@ -56,8 +56,8 @@ export const Cover = () => {
                     const globalIndex = prevCharsCount + charIndex
                     const isVisible = animatedChars.length > globalIndex
                     const isFirstChar = charIndex === 0
-                    // 지그재그 효과: 짝수 인덱스는 위로, 홀수 인덱스는 아래로
-                    const zigzagOffset = globalIndex % 2 === 0 ? -15 : 15
+                    // 지그재그 효과: 짝수 인덱스는 위로, 홀수 인덱스는 아래로 (거의 일자로 보이도록 작게)
+                    const zigzagOffset = globalIndex % 2 === 0 ? -3 : 3
                     
                     return (
                       <span
