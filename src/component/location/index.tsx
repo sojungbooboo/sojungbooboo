@@ -70,45 +70,46 @@ export const Location = () => {
         // 화살표 제거 함수
         const removeArrow = () => {
           setTimeout(() => {
-            // 카카오맵 인포윈도우의 화살표 요소 찾아서 제거
-            const infoWindowElements = document.querySelectorAll('.info')
-            infoWindowElements.forEach((info: any) => {
-              // 화살표는 보통 ::before, ::after 또는 하위 요소로 존재
-              if (info) {
-                // 모든 하위 요소 중 화살표 관련 스타일 제거
-                const style = info.getAttribute('style') || ''
-                if (style.includes('::before') || style.includes('::after')) {
-                  // CSS로 화살표 숨기기
-                }
-                
-                // 화살표 요소 직접 찾아서 제거 시도
-                const arrow = info.querySelector('[class*="arrow"]') || 
-                             info.querySelector('div[style*="position"]')
-                if (arrow) {
-                  arrow.remove()
-                }
+            // triangle.png 배경 이미지를 가진 모든 div 요소 찾아서 제거
+            const allDivs = document.querySelectorAll('div[style*="triangle.png"]')
+            allDivs.forEach((div: any) => {
+              if (div && div.style && div.style.backgroundImage && div.style.backgroundImage.includes('triangle.png')) {
+                div.remove()
               }
             })
 
-            // 전역 스타일로 화살표 숨기기
-            if (!document.getElementById('kakao-map-arrow-hide')) {
-              const style = document.createElement('style')
-              style.id = 'kakao-map-arrow-hide'
-              style.textContent = `
-                .info::before,
-                .info::after,
-                .info div[class*="arrow"],
-                div[class*="InfoWindow"]::before,
-                div[class*="InfoWindow"]::after,
-                div[class*="InfoWindow"] div[class*="arrow"] {
-                  display: none !important;
-                  visibility: hidden !important;
-                  opacity: 0 !important;
+            // 더 광범위하게 모든 div 요소를 체크
+            const mapContainer = mapContainer.current
+            if (mapContainer) {
+              const allDivsInMap = mapContainer.querySelectorAll('div')
+              allDivsInMap.forEach((div: any) => {
+                const style = div.getAttribute('style') || ''
+                if (style.includes('triangle.png') || (div.style && div.style.backgroundImage && div.style.backgroundImage.includes('triangle.png'))) {
+                  div.remove()
                 }
-              `
-              document.head.appendChild(style)
+              })
             }
+
+            // 전역에서 triangle.png를 포함한 모든 요소 찾기
+            const allElements = document.querySelectorAll('div')
+            allElements.forEach((el: any) => {
+              if (el.style && el.style.backgroundImage && el.style.backgroundImage.includes('triangle.png')) {
+                el.remove()
+              }
+            })
           }, 100)
+
+          // 여러 번 시도하여 확실히 제거
+          setTimeout(() => {
+            const allDivs = document.querySelectorAll('div')
+            allDivs.forEach((div: any) => {
+              const style = div.getAttribute('style') || ''
+              if (style.includes('triangle.png') || (div.style && div.style.backgroundImage && div.style.backgroundImage.includes('triangle.png'))) {
+                div.style.display = 'none'
+                div.remove()
+              }
+            })
+          }, 300)
         }
 
         // 마커 클릭 시 인포윈도우 표시

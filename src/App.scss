@@ -118,18 +118,16 @@ body {
 }
 
 // 카카오맵 인포윈도우 화살표 제거
-.info-arrow,
-div[class*="arrow"] {
-  &[style*="position: absolute"],
-  &[style*="background"] {
-    display: none !important;
-  }
+div[style*="triangle.png"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 // 카카오맵 인포윈도우 커스텀 스타일
 .kakao-map {
-  :global(.info-arrow),
-  :global(div[class*="arrow"]) {
+  // triangle.png를 배경으로 사용하는 모든 요소 숨기기
+  div[style*="triangle.png"] {
     display: none !important;
     visibility: hidden !important;
   }
