@@ -115,6 +115,7 @@ body {
 
 .accounts-section {
   background-color: var(--bg-white);
+  min-height: 50vh; // 높이 절반으로 변경
 }
 
 // 카카오맵 인포윈도우 화살표 제거
