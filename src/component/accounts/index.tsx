@@ -125,7 +125,7 @@ export const Accounts = () => {
         <h2 className="english-title share-title">Share</h2>
         <div className="share-buttons">
           <button className="share-button kakao-share-button" onClick={handleKakaoShare}>
-            <span>카카오톡 공유하기</span>
+            <span>공유하기</span>
             <i className="fas fa-share-alt icon"></i>
           </button>
           <button
