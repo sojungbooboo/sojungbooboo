@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeOut 1.2s ease-out 5s forwards; // 마지막 글자 애니메이션 + 1.5초 대기 후 더 느리게 사라짐
+    animation: fadeOut 1.2s ease-out 3.3s forwards; // "We Got Married" (1.1s) + "!" 딜레이 (0.5s) + 대기 (1.5s) + 초기 딜레이 (0.2s) = 3.3s
 
     .intro-text {
       position: relative;

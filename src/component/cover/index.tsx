@@ -8,7 +8,7 @@ export const Cover = () => {
 
   useEffect(() => {
     // 글자별 애니메이션 시작
-    const text = ["We", "Got", "Married!"]
+    const text = ["We", "Got", "Married"]
     const allChars = text.join(" ").split("")
     let currentIndex = 0
 
@@ -18,14 +18,18 @@ export const Cover = () => {
         currentIndex++
         setTimeout(animateChars, 100) // 각 글자마다 100ms 딜레이
       } else {
-        // 마지막 글자 애니메이션 끝나고 1.5초 더 기다림 (더 느리게)
+        // "Married"까지 나타난 후 0.5초 딜레이 후 "!" 표시
         setTimeout(() => {
-          setShowIntro(false)
-          // 인트로가 사라진 후 cover-content 표시
+          setAnimatedChars((prev) => [...prev, "!"])
+          // "!" 표시 후 1.5초 더 기다림
           setTimeout(() => {
-            setShowContent(true)
-          }, 200) // fadeOut 애니메이션 완료 후 약간의 딜레이
-        }, 1500)
+            setShowIntro(false)
+            // 인트로가 사라진 후 cover-content 표시
+            setTimeout(() => {
+              setShowContent(true)
+            }, 200) // fadeOut 애니메이션 완료 후 약간의 딜레이
+          }, 1500)
+        }, 500) // "!" 딜레이 0.5초
       }
     }
 
@@ -50,9 +54,14 @@ export const Cover = () => {
                 .join(" ")
                 .split("").length
               
+              // "Married!" 라인인 경우 "!"를 별도 처리
+              const isMarriedLine = line === "Married!"
+              const displayLine = isMarriedLine ? "Married" : line
+              const exclamationMark = isMarriedLine ? "!" : null
+              
               return (
                 <div key={lineIndex} className={`brush-line line-${lineIndex}`}>
-                  {line.split("").map((char, charIndex) => {
+                  {displayLine.split("").map((char, charIndex) => {
                     const globalIndex = prevCharsCount + charIndex
                     const isVisible = animatedChars.length > globalIndex
                     const isFirstChar = charIndex === 0
@@ -72,6 +81,18 @@ export const Cover = () => {
                       </span>
                     )
                   })}
+                  {/* "!" 느낌표는 별도로 처리 */}
+                  {exclamationMark && (
+                    <span
+                      className={`brush-char ${animatedChars.includes("!") ? "visible" : ""}`}
+                      style={{
+                        transitionDelay: `${(prevCharsCount + displayLine.length) * 0.1 + 0.5}s`, // 0.5초 딜레이 추가
+                        '--zigzag-offset': `${(prevCharsCount + displayLine.length) % 2 === 0 ? -3 : 3}px`,
+                      } as React.CSSProperties}
+                    >
+                      {exclamationMark}
+                    </span>
+                  )}
                 </div>
               )
             })}
