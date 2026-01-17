@@ -16,9 +16,9 @@ export const WEDDING_DATE_FORMAT = "YYYY년 M월 D일 dddd A h시 m분"
 export const LOCATION = "해군호텔 W웨딩홀 본관 노블레스홀"
 export const LOCATION_ADDRESS = "서울 영등포구 가마산로 538"
 
-// 지도 좌표 (해군호텔 근처 - 실제 좌표로 수정 필요)
+// 지도 좌표 (해군호텔 W웨딩홀 본관 노블레스홀)
 // [경도, 위도] 형식
-export const WEDDING_HALL_POSITION = [126.901234, 37.512345]
+export const WEDDING_HALL_POSITION = [126.91835, 37.52174]
 
 // 카카오 지도 장소 ID (실제 ID로 수정 필요)
 export const KMAP_PLACE_ID = 0
@@ -26,7 +26,7 @@ export const KMAP_PLACE_ID = 0
 // 카카오맵 JavaScript API Key
 // 발급 방법: https://developers.kakao.com → 내 애플리케이션 → JavaScript 키
 // 무료 할당량: 월 300,000건 (과금 걱정 없음)
-export const KAKAO_MAP_API_KEY = "" // 여기에 API 키를 입력하세요
+export const KAKAO_MAP_API_KEY = "33ca32716a75107b1da61cc1b76a0f7a"
 
 // 신랑 정보
 export const GROOM_FULLNAME = "송중화"
