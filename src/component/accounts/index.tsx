@@ -85,13 +85,21 @@ export const Accounts = () => {
     const currentUrl = window.location.href
     const shareText = "JUNGHWA & SOHYUN 결혼식 청첩장"
     
-    // 카카오톡 링크 공유 URL 생성
-    const encodedUrl = encodeURIComponent(currentUrl)
-    const encodedText = encodeURIComponent(shareText)
-    const kakaoShareUrl = `https://sharer.kakao.com/talk/friends/picker/slink?url=${encodedUrl}&text=${encodedText}`
-    
-    // 새 창으로 카카오톡 공유 페이지 열기
-    window.open(kakaoShareUrl, "_blank", "width=600,height=600")
+    // Web Share API 사용 (모바일 네이티브 공유)
+    if (navigator.share) {
+      navigator.share({
+        title: shareText,
+        text: shareText,
+        url: currentUrl,
+      }).catch((error) => {
+        console.log("공유 취소 또는 오류:", error)
+      })
+    } else {
+      // Web Share API를 지원하지 않는 경우 (데스크톱 등)
+      // URL을 클립보드에 복사하고 안내 메시지 표시
+      navigator.clipboard.writeText(currentUrl)
+      alert("청첩장 주소가 클립보드에 복사되었습니다.\n카카오톡에서 붙여넣기하여 공유해주세요.")
+    }
   }
 
   return (
