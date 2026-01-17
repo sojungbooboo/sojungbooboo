@@ -16,18 +16,18 @@ export const Cover = () => {
         setAnimatedChars((prev) => [...prev, allChars[currentIndex]])
         currentIndex++
         setTimeout(animateChars, 100) // 각 글자마다 100ms 딜레이
+      } else {
+        // 마지막 글자 애니메이션 끝나고 0.5초 더 기다림
+        setTimeout(() => {
+          setShowIntro(false)
+        }, 500)
       }
     }
 
     // 약간의 딜레이 후 애니메이션 시작
     setTimeout(animateChars, 200)
 
-    // 4초 후 인트로 오버레이 사라지기 (애니메이션 시간 고려)
-    const timer = setTimeout(() => {
-      setShowIntro(false)
-    }, 4000)
-
-    return () => clearTimeout(timer)
+    return () => {}
   }, [])
 
   const textLines = ["We", "Got", "Married!"]
@@ -39,17 +39,18 @@ export const Cover = () => {
         <div className="intro-overlay">
           <div className="intro-text">
             {textLines.map((line, lineIndex) => (
-              <div key={lineIndex} className="brush-line">
+              <div key={lineIndex} className={`brush-line line-${lineIndex}`}>
                 {line.split("").map((char, charIndex) => {
                   const globalIndex = textLines
                     .slice(0, lineIndex)
                     .join(" ")
                     .split("").length + charIndex
                   const isVisible = animatedChars.length > globalIndex
+                  const isFirstChar = charIndex === 0
                   return (
                     <span
                       key={charIndex}
-                      className={`brush-char ${isVisible ? "visible" : ""}`}
+                      className={`brush-char ${isVisible ? "visible" : ""} ${isFirstChar ? "first-char" : ""}`}
                       style={{
                         transitionDelay: `${globalIndex * 0.1}s`,
                       }}
