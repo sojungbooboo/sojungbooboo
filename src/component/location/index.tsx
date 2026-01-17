@@ -62,8 +62,7 @@ export const Location = () => {
         // 인포윈도우 생성
         const infowindow = new kakao.maps.InfoWindow({
           content: `<div style="padding:10px;font-size:14px;text-align:center;">
-            <strong>${LOCATION}</strong><br/>
-            ${LOCATION_ADDRESS}
+            <strong>${LOCATION}</strong>
           </div>`,
         })
 
