@@ -61,8 +61,9 @@ export const Location = () => {
 
         // 인포윈도우 생성
         const infowindow = new kakao.maps.InfoWindow({
-          content: `<div style="padding:10px;font-size:14px;text-align:center;">
-            <strong>${LOCATION}</strong>
+          content: `<div style="padding:12px 16px;font-size:14px;text-align:center;line-height:1.5;min-width:180px;">
+            <strong>해군호텔 W웨딩홀</strong><br/>
+            <strong>본관 노블레스홀</strong>
           </div>`,
         })
 
