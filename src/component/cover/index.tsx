@@ -3,6 +3,7 @@ import "./index.scss"
 
 export const Cover = () => {
   const [showIntro, setShowIntro] = useState(true)
+  const [showContent, setShowContent] = useState(false)
   const [animatedChars, setAnimatedChars] = useState<string[]>([])
 
   useEffect(() => {
@@ -20,6 +21,10 @@ export const Cover = () => {
         // 마지막 글자 애니메이션 끝나고 1.5초 더 기다림 (더 느리게)
         setTimeout(() => {
           setShowIntro(false)
+          // 인트로가 사라진 후 cover-content 표시
+          setTimeout(() => {
+            setShowContent(true)
+          }, 200) // fadeOut 애니메이션 완료 후 약간의 딜레이
         }, 1500)
       }
     }
@@ -71,7 +76,7 @@ export const Cover = () => {
         />
         <div className="overlay" />
       </div>
-      <div className="cover-content">
+      <div className={`cover-content ${showContent ? "visible" : ""}`}>
         <div className="names">
           <span className="groom-name">JUNGHWA</span>
           <span className="divider">&</span>
