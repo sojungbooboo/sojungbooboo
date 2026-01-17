@@ -3,15 +3,34 @@ import "./index.scss"
 
 export const Cover = () => {
   const [showIntro, setShowIntro] = useState(true)
+  const [animatedChars, setAnimatedChars] = useState<string[]>([])
 
   useEffect(() => {
-    // 3초 후 인트로 오버레이 사라지기
+    // 글자별 애니메이션 시작
+    const text = ["We", "Got", "Married!"]
+    const allChars = text.join(" ").split("")
+    let currentIndex = 0
+
+    const animateChars = () => {
+      if (currentIndex < allChars.length) {
+        setAnimatedChars((prev) => [...prev, allChars[currentIndex]])
+        currentIndex++
+        setTimeout(animateChars, 100) // 각 글자마다 100ms 딜레이
+      }
+    }
+
+    // 약간의 딜레이 후 애니메이션 시작
+    setTimeout(animateChars, 200)
+
+    // 4초 후 인트로 오버레이 사라지기 (애니메이션 시간 고려)
     const timer = setTimeout(() => {
       setShowIntro(false)
-    }, 3000)
+    }, 4000)
 
     return () => clearTimeout(timer)
   }, [])
+
+  const textLines = ["We", "Got", "Married!"]
 
   return (
     <div className="cover">
@@ -19,7 +38,28 @@ export const Cover = () => {
       {showIntro && (
         <div className="intro-overlay">
           <div className="intro-text">
-            <span className="brush-text">We get Married!</span>
+            {textLines.map((line, lineIndex) => (
+              <div key={lineIndex} className="brush-line">
+                {line.split("").map((char, charIndex) => {
+                  const globalIndex = textLines
+                    .slice(0, lineIndex)
+                    .join(" ")
+                    .split("").length + charIndex
+                  const isVisible = animatedChars.length > globalIndex
+                  return (
+                    <span
+                      key={charIndex}
+                      className={`brush-char ${isVisible ? "visible" : ""}`}
+                      style={{
+                        transitionDelay: `${globalIndex * 0.1}s`,
+                      }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </span>
+                  )
+                })}
+              </div>
+            ))}
           </div>
         </div>
       )}
