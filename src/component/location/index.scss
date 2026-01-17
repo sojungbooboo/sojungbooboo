@@ -59,6 +59,9 @@
         font-size: 0.95rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        width: 120px; // 주소 복사/복사됨 텍스트 변경 시 width 고정
+        text-align: center;
+        box-sizing: border-box;
 
         &:hover:not(.copied) {
           background-color: #c49564;
