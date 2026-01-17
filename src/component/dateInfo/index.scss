@@ -32,21 +32,9 @@
         color: #ffffff;
         letter-spacing: 0.05em;
         opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        transform: translateY(30px) scale(0.8);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         display: inline-block;
-
-        &.month {
-          transition-delay: 0.1s;
-        }
-
-        &.day {
-          transition-delay: 0.3s;
-        }
-
-        &.year {
-          transition-delay: 0.5s;
-        }
       }
 
       &.animate {

@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 import { WEDDING_DATE } from "../../const"
+import dayjs from "dayjs"
+import "dayjs/locale/en"
 import "./index.scss"
 
 export const DateInfo = () => {
@@ -35,8 +37,8 @@ export const DateInfo = () => {
     return () => observer.disconnect()
   }, [])
 
-  // 날짜 포맷: MAR 28 2026
-  const month = WEDDING_DATE.format("MMM").toUpperCase()
+  // 날짜 포맷: MAR 28 2026 (영어 로케일로 포맷)
+  const month = dayjs(WEDDING_DATE).locale("en").format("MMM").toUpperCase()
   const day = WEDDING_DATE.format("D")
   const year = WEDDING_DATE.format("YYYY")
 
@@ -44,11 +46,33 @@ export const DateInfo = () => {
     <div className="date-info" ref={containerRef}>
       <div className="date-content">
         <div className={`date-line ${showText ? "animate" : ""}`}>
-          <span className="date-text month">{month}</span>
-          <span className="date-text day">{day}</span>
+          {month.split("").map((char, index) => (
+            <span
+              key={`month-${index}`}
+              className="date-text month"
+              style={{
+                transitionDelay: `${0.1 * index}s`,
+              }}
+            >
+              {char}
+            </span>
+          ))}
+          <span className="date-text day" style={{ transitionDelay: "0.4s" }}>
+            {day}
+          </span>
         </div>
         <div className={`date-line year-line ${showText ? "animate" : ""}`}>
-          <span className="date-text year">{year}</span>
+          {year.split("").map((char, index) => (
+            <span
+              key={`year-${index}`}
+              className="date-text year"
+              style={{
+                transitionDelay: `${0.5 + 0.1 * index}s`,
+              }}
+            >
+              {char}
+            </span>
+          ))}
         </div>
       </div>
     </div>
