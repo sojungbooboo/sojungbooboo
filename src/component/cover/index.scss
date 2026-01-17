@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeOut 0.8s ease-out 3.5s forwards; // 마지막 글자 애니메이션 + 0.5초 대기 후 사라짐
+    animation: fadeOut 1.2s ease-out 5s forwards; // 마지막 글자 애니메이션 + 1.5초 대기 후 더 느리게 사라짐
 
     .intro-text {
       position: relative;
@@ -51,13 +51,13 @@
         }
 
         .brush-char {
-          font-family: 'Imperial Script', 'Dancing Script', 'Caveat', cursive;
-          font-size: 6rem; // 더 큰 글자
+          font-family: 'Ephesis', 'Dancing Script', 'Caveat', cursive;
+          font-size: 7rem; // 더 큰 글자
           font-weight: 400;
           color: #ffffff;
           display: inline-block;
           position: relative;
-          letter-spacing: 0.15em; // 자간 넓히기
+          letter-spacing: 0.02em; // 자간 좁히기
           opacity: 0;
           transform: translateY(20px) scale(0.8);
           transition: opacity 0.4s ease-out, transform 0.4s ease-out;
@@ -71,8 +71,8 @@
 
           // 첫 번째 글자 더 크게
           &.first-char {
-            font-size: 7.5rem; // 첫 글자는 더 크게
-            margin-right: 0.1em;
+            font-size: 9rem; // 첫 글자는 더 크게
+            margin-right: 0.05em;
           }
 
           &.visible {
@@ -81,10 +81,10 @@
           }
 
           @media (max-width: 500px) {
-            font-size: 4.5rem;
+            font-size: 5.5rem;
 
             &.first-char {
-              font-size: 5.5rem;
+              font-size: 7rem;
             }
           }
         }

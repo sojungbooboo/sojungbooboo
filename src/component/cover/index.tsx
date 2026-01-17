@@ -17,10 +17,10 @@ export const Cover = () => {
         currentIndex++
         setTimeout(animateChars, 100) // 각 글자마다 100ms 딜레이
       } else {
-        // 마지막 글자 애니메이션 끝나고 0.5초 더 기다림
+        // 마지막 글자 애니메이션 끝나고 1.5초 더 기다림 (더 느리게)
         setTimeout(() => {
           setShowIntro(false)
-        }, 500)
+        }, 1500)
       }
     }
 
