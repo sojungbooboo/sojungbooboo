@@ -1,12 +1,12 @@
 import { Cover } from './component/cover';
-// import { Thanks } from './component/thanks'; // 삭제됨
+import { Thanks } from './component/thanks';
 import { Venue } from './component/venue';
 import { DateInfo } from './component/dateInfo';
-// import { CoupleInfo } from './component/coupleInfo'; // 삭제됨
+import { CoupleInfo } from './component/coupleInfo';
 import { Countdown } from './component/countdown';
 import { Gallery } from './component/gallery';
 import { Location } from './component/location';
-// import { Transportation } from './component/transportation'; // 삭제됨
+import { Transportation } from './component/transportation';
 import { Notice } from './component/notice';
 import { Accounts } from './component/accounts';
 import { LazyDiv } from './component/lazyDiv';
@@ -18,10 +18,8 @@ function App() {
       {/* 메인 화면 (랜딩 페이지) */}
       <Cover />
 
-      {/* 감사인사 - 삭제 (높이 유지) */}
-      <LazyDiv className='section thanks-section'>
-        <div style={{ minHeight: '100vh' }}></div>
-      </LazyDiv>
+      {/* 감사인사 */}
+      <Thanks />
 
       {/* 일시 */}
       <LazyDiv className='section date-section'>
@@ -33,9 +31,9 @@ function App() {
         <Venue />
       </LazyDiv>
 
-      {/* 부부소개 - 삭제 (높이 유지) */}
+      {/* 부부소개 */}
       <LazyDiv className='section couple-info'>
-        <div style={{ minHeight: '100vh' }}></div>
+        <CoupleInfo />
       </LazyDiv>
 
       {/* 디데이 */}
@@ -53,9 +51,9 @@ function App() {
         <Location />
       </LazyDiv>
 
-      {/* 교통 안내 - 삭제 (높이 유지) */}
+      {/* 교통 안내 */}
       <LazyDiv className='section transportation-section'>
-        <div style={{ minHeight: '100vh' }}></div>
+        <Transportation />
       </LazyDiv>
 
       {/* 안내사항 */}

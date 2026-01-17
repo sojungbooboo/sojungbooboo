@@ -93,10 +93,6 @@ body {
   background-color: var(--bg-cream);
 }
 
-.thanks-section {
-  background-color: var(--bg-white);
-}
-
 .countdown-section {
   background-color: var(--bg-gold);
 }
@@ -153,9 +149,9 @@ h2 {
 
   &.english-title {
     font-family: 'Playfair Display', 'Gowun Batang', serif;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase; // 모두 대문자로
+    font-weight: 600;
+    letter-spacing: 0.1em; // INFORMATION과 통일
+    text-transform: uppercase; // 모든 영어 제목 대문자로
   }
 }
 

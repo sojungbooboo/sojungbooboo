@@ -4,7 +4,6 @@ export const Transportation = () => {
   return (
     <div className='transportation'>
       <div className='divider'></div>
-      <h2 className="english-title">Transportation</h2>
       <div className='content'>
         <div className='transport-section'>
           <h3>버스</h3>

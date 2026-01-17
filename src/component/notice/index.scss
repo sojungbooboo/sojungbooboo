@@ -6,12 +6,13 @@
     margin-bottom: 3rem;
 
     .english-title {
-      font-size: 2rem;
-      font-weight: 400;
+      font-size: 1.8rem; // App.scss와 통일
+      font-weight: 600; // App.scss와 통일
       color: var(--text-dark);
-      margin-bottom: 0.5rem;
-      font-family: 'Playfair Display', serif;
+      margin-bottom: 2rem; // App.scss와 통일
+      font-family: 'Playfair Display', 'Gowun Batang', serif; // App.scss와 통일
       letter-spacing: 0.1em;
+      text-transform: uppercase; // 대문자로
     }
 
     .korean-subtitle {

@@ -15,7 +15,6 @@ import "./index.scss"
 export const CoupleInfo = () => {
   return (
     <div className="couple-info">
-      <h2 className="english-title">Couple</h2>
       <div className="content">
         <div className="groom">
           <div className="parents">
