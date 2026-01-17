@@ -42,7 +42,7 @@ export const Countdown = () => {
 
   return (
     <div className="countdown">
-      <h2>디데이</h2>
+      <h2 className="english-title">D-DAY</h2>
       <div className="content">
         <p className="message">
           중화 & 소현의 결혼식이 <span className="days">{timeLeft.days}</span>일

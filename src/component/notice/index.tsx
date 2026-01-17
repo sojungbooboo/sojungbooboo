@@ -5,7 +5,6 @@ export const Notice = () => {
     <div className="notice">
       <div className="notice-header">
         <h2 className="english-title">INFORMATION</h2>
-        <p className="korean-subtitle">안내</p>
       </div>
       <div className="content">
         <div className="notice-card">
