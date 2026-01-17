@@ -81,45 +81,17 @@ export const Accounts = () => {
     }, 2000)
   }
 
-  const handleAddToCalendar = () => {
-    // .ics 파일 생성
-    const startDate = WEDDING_DATE.format("YYYYMMDDTHHmmss")
-    const endDate = WEDDING_DATE.add(3, "hour").format("YYYYMMDDTHHmmss") // 3시간 후 종료
-    const title = "JUNGHWA & SOHYUN 결혼식"
-    const description = `${LOCATION}\n${LOCATION_ADDRESS}`
-    const location = `${LOCATION}, ${LOCATION_ADDRESS}`
-
-    const icsContent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//Wedding Invitation//EN",
-      "CALSCALE:GREGORIAN",
-      "METHOD:PUBLISH",
-      "BEGIN:VEVENT",
-      `DTSTART:${startDate}`,
-      `DTEND:${endDate}`,
-      `SUMMARY:${title}`,
-      `DESCRIPTION:${description}`,
-      `LOCATION:${location}`,
-      "STATUS:CONFIRMED",
-      "SEQUENCE:0",
-      "BEGIN:VALARM",
-      "TRIGGER:-PT24H",
-      "ACTION:DISPLAY",
-      "DESCRIPTION:결혼식 하루 전 알림",
-      "END:VALARM",
-      "END:VEVENT",
-      "END:VCALENDAR",
-    ].join("\r\n")
-
-    // Blob 생성 및 다운로드
-    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" })
-    const link = document.createElement("a")
-    link.href = URL.createObjectURL(blob)
-    link.download = "wedding-invitation.ics"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+  const handleKakaoShare = () => {
+    const currentUrl = window.location.href
+    const shareText = "JUNGHWA & SOHYUN 결혼식 청첩장"
+    
+    // 카카오톡 링크 공유 URL 생성
+    const encodedUrl = encodeURIComponent(currentUrl)
+    const encodedText = encodeURIComponent(shareText)
+    const kakaoShareUrl = `https://sharer.kakao.com/talk/friends/picker/slink?url=${encodedUrl}&text=${encodedText}`
+    
+    // 새 창으로 카카오톡 공유 페이지 열기
+    window.open(kakaoShareUrl, "_blank", "width=600,height=600")
   }
 
   return (
@@ -144,9 +116,9 @@ export const Accounts = () => {
       <div className="share-section">
         <h2 className="english-title share-title">Share</h2>
         <div className="share-buttons">
-          <button className="share-button calendar-button" onClick={handleAddToCalendar}>
-            <span>캘린더 등록하기</span>
-            <i className="fas fa-calendar icon"></i>
+          <button className="share-button kakao-share-button" onClick={handleKakaoShare}>
+            <span>카카오톡 공유하기</span>
+            <i className="fas fa-share-alt icon"></i>
           </button>
           <button
             className={`share-button copy-button ${copiedUrl ? "copied" : ""}`}
