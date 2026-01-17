@@ -41,7 +41,7 @@
           position: relative;
           letter-spacing: 0.02em; // 자간 좁히기
           opacity: 0;
-          transform: translateY(20px) scale(0.8);
+          transform: translateY(calc(20px + var(--zigzag-offset, 0px))) scale(0.8);
           transition: opacity 0.4s ease-out, transform 0.4s ease-out;
           // 붓글씨 효과를 위한 텍스트 그림자
           text-shadow: 
@@ -59,7 +59,8 @@
 
           &.visible {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            // 지그재그 오프셋 + scale 적용
+            transform: translateY(var(--zigzag-offset, 0px)) scale(1);
           }
 
           @media (max-width: 500px) {

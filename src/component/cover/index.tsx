@@ -43,29 +43,38 @@ export const Cover = () => {
       {showIntro && (
         <div className="intro-overlay">
           <div className="intro-text">
-            {textLines.map((line, lineIndex) => (
-              <div key={lineIndex} className={`brush-line line-${lineIndex}`}>
-                {line.split("").map((char, charIndex) => {
-                  const globalIndex = textLines
-                    .slice(0, lineIndex)
-                    .join(" ")
-                    .split("").length + charIndex
-                  const isVisible = animatedChars.length > globalIndex
-                  const isFirstChar = charIndex === 0
-                  return (
-                    <span
-                      key={charIndex}
-                      className={`brush-char ${isVisible ? "visible" : ""} ${isFirstChar ? "first-char" : ""}`}
-                      style={{
-                        transitionDelay: `${globalIndex * 0.1}s`,
-                      }}
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </span>
-                  )
-                })}
-              </div>
-            ))}
+            {textLines.map((line, lineIndex) => {
+              // 이전 라인들의 글자 수 계산
+              const prevCharsCount = textLines
+                .slice(0, lineIndex)
+                .join(" ")
+                .split("").length
+              
+              return (
+                <div key={lineIndex} className={`brush-line line-${lineIndex}`}>
+                  {line.split("").map((char, charIndex) => {
+                    const globalIndex = prevCharsCount + charIndex
+                    const isVisible = animatedChars.length > globalIndex
+                    const isFirstChar = charIndex === 0
+                    // 지그재그 효과: 짝수 인덱스는 위로, 홀수 인덱스는 아래로
+                    const zigzagOffset = globalIndex % 2 === 0 ? -15 : 15
+                    
+                    return (
+                      <span
+                        key={charIndex}
+                        className={`brush-char ${isVisible ? "visible" : ""} ${isFirstChar ? "first-char" : ""}`}
+                        style={{
+                          transitionDelay: `${globalIndex * 0.1}s`,
+                          '--zigzag-offset': `${zigzagOffset}px`,
+                        } as React.CSSProperties}
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </span>
+                    )
+                  })}
+                </div>
+              )
+            })}
           </div>
         </div>
       )}
