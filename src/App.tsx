@@ -21,14 +21,14 @@ function App() {
       {/* 감사인사 */}
       <Thanks />
 
-      {/* 예식장 */}
-      <LazyDiv className='section venue-section'>
-        <Venue />
-      </LazyDiv>
-
       {/* 일시 */}
       <LazyDiv className='section date-section'>
         <DateInfo />
+      </LazyDiv>
+
+      {/* 예식장 */}
+      <LazyDiv className='section venue-section'>
+        <Venue />
       </LazyDiv>
 
       {/* 부부소개 */}
