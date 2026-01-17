@@ -116,6 +116,9 @@
         }
 
         &.copy-button {
+          width: 100%; // Share 섹션 복사 버튼 width 고정
+          box-sizing: border-box;
+          
           &:hover:not(.copied) {
             background-color: #1a1a1a;
           }
@@ -173,8 +176,9 @@
         font-size: 0.9rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
-        min-width: 60px; // 복사/복사됨 텍스트 변경 시 width 고정
+        width: 80px; // 복사/복사됨 텍스트 변경 시 width 고정
         text-align: center;
+        box-sizing: border-box;
 
         &:hover:not(.copied) {
           background-color: #c49564;

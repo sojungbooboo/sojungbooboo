@@ -151,7 +151,6 @@ export const Accounts = () => {
           <button
             className={`share-button copy-button ${copiedUrl ? "copied" : ""}`}
             onClick={handleCopyUrl}
-            style={{ minWidth: '200px' }} // 복사됨 텍스트 변경 시 width 고정
           >
             <span>{copiedUrl ? "복사됨" : "청첩장 주소 복사하기"}</span>
             <i className="fas fa-clipboard icon"></i>
