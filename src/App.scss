@@ -6,12 +6,14 @@
   --text-dark: #2c2c2c;
   --text-light: #666666;
   --bg-white: #ffffff;
-  --bg-cream: #faf9f7;
-  --bg-pink: #fef7f5;
-  --bg-beige: #faf8f6;
-  --bg-gold: #fefaf0;
-  --bg-gray: #f8f8f8;
-  --border-color: #e8e8e8;
+  // 배경용 소프트 핑크(미색) 톤으로 통일
+  --bg-soft: #FFF4FA;
+  --bg-cream: var(--bg-soft);
+  --bg-pink: var(--bg-soft);
+  --bg-beige: var(--bg-soft);
+  --bg-gold: var(--bg-soft);
+  --bg-gray: var(--bg-soft);
+  --border-color: #F3C1DB;
 }
 
 * {
@@ -27,6 +29,9 @@ html {
   overscroll-behavior-y: contain;
   // 터치 동작 최적화
   touch-action: pan-y;
+  // Android(특히 Chrome) 텍스트 자동 확대(font boosting) 방지
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 body {

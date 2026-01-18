@@ -36,7 +36,7 @@
     }
 
     .venue-name {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 1rem;
@@ -45,7 +45,7 @@
 
     .address-section {
       .address {
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: var(--text-dark);
         margin-bottom: 1rem;
       }
@@ -69,8 +69,10 @@
         }
 
         &.copied {
-          background-color: var(--primary-light);
-          color: var(--text-dark);
+          // "복사됨" 상태는 흰색 글자
+          background-color: var(--primary-color);
+          color: #ffffff;
+          opacity: 0.85;
           cursor: default;
         }
       }

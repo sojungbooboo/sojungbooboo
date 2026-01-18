@@ -8,10 +8,20 @@
 
   .content {
     .venue-name {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: var(--text-dark);
       font-weight: 500;
       line-height: 1.6;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .venue {
+    .content {
+      .venue-name {
+        font-size: 1.05rem;
+      }
     }
   }
 }
