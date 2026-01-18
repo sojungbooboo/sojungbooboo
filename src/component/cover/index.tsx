@@ -30,11 +30,11 @@ export const Cover = () => {
 
       {/* 텍스트 컨텐츠 */}
       <div className="hero-content">
-        {/* 영문 이름 (중앙 상단) */}
+        {/* 영문 이름 (중앙 상단) - 성 제거 */}
         <div className={`hero-names ${isVisible ? 'visible' : ''}`}>
-          <h1 className="groom-name">{GROOM_ENGLISH_NAME.toUpperCase()}</h1>
+          <h1 className="groom-name">JUNG HWA</h1>
           <span className="divider">&</span>
-          <h1 className="bride-name">{BRIDE_ENGLISH_NAME.toUpperCase()}</h1>
+          <h1 className="bride-name">SO HYUN</h1>
         </div>
 
         {/* 날짜/시간/장소 정보 (화면 하단) */}
