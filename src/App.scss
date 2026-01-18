@@ -6,13 +6,15 @@
   --text-dark: #2c2c2c;
   --text-light: #666666;
   --bg-white: #ffffff;
-  // 배경용 소프트 핑크(미색) 톤으로 통일
-  --bg-soft: #FFF4FA;
-  --bg-cream: var(--bg-soft);
-  --bg-pink: var(--bg-soft);
-  --bg-beige: var(--bg-soft);
-  --bg-gold: var(--bg-soft);
-  --bg-gray: var(--bg-soft);
+  // 배경용 소프트 핑크(미색) 2종 (섹션 구분용)
+  --bg-soft-1: #FFF4FA;
+  --bg-soft-2: #FFE8F3;
+  // 기존 변수 호환 (필요한 곳에서 사용)
+  --bg-cream: var(--bg-soft-1);
+  --bg-pink: var(--bg-soft-1);
+  --bg-beige: var(--bg-soft-2);
+  --bg-gold: var(--bg-soft-2);
+  --bg-gray: var(--bg-soft-2);
   --border-color: #F3C1DB;
 }
 
@@ -97,11 +99,11 @@ body {
 }
 
 .couple-info {
-  background-color: var(--bg-cream);
+  background-color: var(--bg-soft-1);
 }
 
 .countdown-section {
-  background-color: var(--bg-gold);
+  background-color: var(--bg-soft-2);
 }
 
 .gallery-section {
@@ -109,15 +111,15 @@ body {
 }
 
 .location-section {
-  background-color: var(--bg-beige);
+  background-color: var(--bg-soft-1);
 }
 
 .transportation-section {
-  background-color: var(--bg-gray);
+  background-color: var(--bg-soft-2);
 }
 
 .notice-section {
-  background-color: var(--bg-pink);
+  background-color: var(--bg-soft-1);
 }
 
 .accounts-section {

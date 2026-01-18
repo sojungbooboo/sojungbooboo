@@ -35,7 +35,7 @@
       .account-button {
         padding: 1rem 1.5rem;
         background-color: #ffffff;
-        color: var(--text-dark);
+        color: var(--primary-color); // 포인트 컬러 텍스트
         border: 1px solid var(--border-color);
         border-radius: 8px;
         font-size: 1rem;
@@ -48,8 +48,9 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
         .chevron {
-          font-size: 0.8rem;
-          color: var(--text-light);
+          font-size: 0.65rem; // 삼각형 높이(크기) 축소
+          line-height: 1;
+          color: var(--primary-color); // 포인트 컬러
         }
 
         &:hover {
@@ -100,13 +101,14 @@
         justify-content: space-between;
         align-items: center;
         // 연한 핑크 배경
-        color: var(--text-dark);
+        color: #ffffff; // 텍스트 화이트
         background-color: var(--primary-light);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 
         .icon {
           font-size: 0.9rem;
-          color: var(--text-dark);
+          color: #ffffff; // 아이콘 화이트
           opacity: 0.9;
         }
 
