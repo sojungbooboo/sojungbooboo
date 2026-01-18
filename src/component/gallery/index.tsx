@@ -2,15 +2,22 @@ import { useState, useEffect } from "react"
 import { createPortal } from "react-dom"
 import "./index.scss"
 
-// 실제 이미지 데이터
+// 실제 이미지 데이터 (13장)
 const baseUrl = import.meta.env.BASE_URL
 const images = [
-  `${baseUrl}images/05_LWR00548_액자컷-.jpg`,
-  `${baseUrl}images/26_LWR02106-1.jpg`,
-  `${baseUrl}images/LWR02002.jpg`,
-  `${baseUrl}images/16_LWR01686-1.jpg`,
-  `${baseUrl}images/17_LWR01595-1.jpg`,
-  `${baseUrl}images/14_LWR01352-1.jpg`,
+  `${baseUrl}images/1.jpeg`,
+  `${baseUrl}images/2.jpeg`,
+  `${baseUrl}images/3.jpeg`,
+  `${baseUrl}images/4.jpg`,
+  `${baseUrl}images/5.jpg`,
+  `${baseUrl}images/6.jpg`,
+  `${baseUrl}images/7.jpg`,
+  `${baseUrl}images/8.jpg`,
+  `${baseUrl}images/9.jpg`,
+  `${baseUrl}images/10.jpg`,
+  `${baseUrl}images/11.jpg`,
+  `${baseUrl}images/12.jpg`,
+  `${baseUrl}images/13.jpg`,
 ]
 
 export const Gallery = () => {

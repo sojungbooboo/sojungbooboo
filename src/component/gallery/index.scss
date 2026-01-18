@@ -27,11 +27,12 @@
         align-items: center;
         justify-content: center;
         position: relative;
+        margin-bottom: 1rem; // 네비게이션과의 간격
 
         .gallery-item {
           position: absolute;
-          width: 95%; // 이미지가 꽉 차보이도록 크게
-          height: 95%; // 이미지가 꽉 차보이도록 크게
+          width: 95%;
+          height: 95%;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -47,8 +48,8 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            border-radius: 8px; // 레퍼런스처럼 약간 둥근 모서리
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 6px; // 살짝만 둥근 모서리 (4px~8px)
+            // 그림자 완전히 제거 (box-shadow 제거)
           }
 
           &.current {
@@ -62,7 +63,7 @@
             z-index: 5;
             left: 0;
             transform: translateX(calc(-100% - 20px)) scale(0.85);
-            opacity: 0.3; // 더 연하게
+            opacity: 0.3;
             pointer-events: none;
           }
 
@@ -70,7 +71,7 @@
             z-index: 5;
             left: 100%;
             transform: translateX(20px) scale(0.85);
-            opacity: 0.3; // 더 연하게
+            opacity: 0.3;
             pointer-events: none;
           }
         }
@@ -80,54 +81,46 @@
     .gallery-controls {
       display: flex;
       align-items: center;
-      justify-content: space-between; // 화살표를 맨 왼쪽/오른쪽으로
+      justify-content: center; // 중앙 정렬
       width: 100%;
       max-width: 500px;
-      margin: 2rem auto 0;
-      padding: 0 1rem;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
       position: relative;
+      gap: 1rem; // 네비게이션 요소 간 간격
 
       .nav-button {
         background: transparent;
-        border: none; // 테두리 제거
-        width: auto;
-        height: auto;
-        padding: 0.5rem;
-        font-size: 1.2rem;
+        border: none;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        font-size: 1rem;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #999999; // 더 연한 색상
+        color: var(--text-dark); // 검정색
         transition: all 0.3s ease;
-        opacity: 0.6;
+        opacity: 0.7;
+        border-radius: 50%;
 
         &:hover {
           opacity: 1;
-          color: #666666;
+          background-color: rgba(0, 0, 0, 0.05);
         }
 
         &:active {
           transform: scale(0.9);
         }
-
-        &.prev {
-          // 맨 왼쪽
-        }
-
-        &.next {
-          // 맨 오른쪽
-        }
       }
 
       .gallery-counter {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 0.75rem; // 더 작은 폰트
-        color: #999999; // 더 연한 색상
-        opacity: 0.6;
+        font-size: 0.85rem;
+        color: var(--text-dark);
         font-weight: 400;
+        min-width: 60px; // 고정 너비로 레이아웃 안정화
+        text-align: center;
       }
     }
   }
@@ -138,8 +131,9 @@
   top: 0 !important;
   left: 0 !important;
   width: 100vw !important;
-  height: calc(var(--vh, 1vh) * 100) !important;
-  background-color: rgba(0, 0, 0, 0.95) !important;
+  height: 100vh !important;
+  height: 100dvh !important; // 동적 뷰포트 높이
+  background-color: rgba(255, 255, 255, 0.95) !important; // 불투명한 화이트
   z-index: 9999 !important;
   display: flex;
   align-items: center;
@@ -147,18 +141,19 @@
   animation: fadeIn 0.3s ease;
   margin: 0 !important;
   padding: 0 !important;
+  overflow: hidden !important;
 
   .close-button {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
-    width: 48px;
-    height: 48px;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1); // 거의 투명한 흰색
-    border: none;
-    color: #ffffff; // X 아이콘 흰색
-    font-size: 1.5rem;
+    background-color: transparent;
+    border: 1px solid rgba(17, 17, 17, 0.1); // 얇은 테두리
+    color: #111111 !important; // 검정색 아이콘
+    font-size: 1.3rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -167,7 +162,7 @@
     z-index: 10001;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(17, 17, 17, 0.05);
       transform: scale(1.1);
     }
 
@@ -183,37 +178,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4rem 6rem;
+    padding: 4rem 3rem;
 
     img {
       max-width: 100%;
       max-height: 100%;
-      object-fit: contain; // 원본 비율 유지
+      object-fit: contain;
       border-radius: 8px;
-      width: auto; // 원본 비율 유지
-      height: auto; // 원본 비율 유지
+      width: auto;
+      height: auto;
     }
 
     .fullscreen-nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 36px; // 작게
-      height: 36px; // 작게
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background-color: transparent; // 투명 배경
-      border: none;
-      color: #ffffff;
-      font-size: 1rem; // 아이콘 크기도 작게
+      background-color: transparent;
+      border: 1px solid rgba(17, 17, 17, 0.1); // 얇은 테두리
+      color: #111111 !important; // 검정색 아이콘
+      font-size: 1rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
       opacity: 0.7;
+      z-index: 10001;
 
       &:hover {
         opacity: 1;
+        background-color: rgba(17, 17, 17, 0.05);
         transform: translateY(-50%) scale(1.1);
       }
 
@@ -231,11 +228,12 @@
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      color: #ffffff;
-      font-size: 1rem;
-      background-color: rgba(0, 0, 0, 0.5);
+      color: #111111; // 검정색 텍스트
+      font-size: 0.9rem;
+      background-color: rgba(255, 255, 255, 0.8);
       padding: 0.5rem 1rem;
       border-radius: 20px;
+      border: 1px solid rgba(17, 17, 17, 0.1);
     }
   }
 }
@@ -250,21 +248,40 @@
 }
 
 @media (max-width: 768px) {
+  .gallery {
+    .content {
+      .gallery-controls {
+        padding: 0.5rem;
+
+        .nav-button {
+          width: 36px;
+          height: 36px;
+          font-size: 0.9rem;
+        }
+
+        .gallery-counter {
+          font-size: 0.8rem;
+          min-width: 50px;
+        }
+      }
+    }
+  }
+
   .fullscreen-modal {
     .close-button {
       top: 1rem;
       right: 1rem;
       width: 40px;
       height: 40px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .fullscreen-image-container {
       padding: 3rem 1rem;
 
       .fullscreen-nav {
-        width: 32px; // 모바일에서도 작게
-        height: 32px; // 모바일에서도 작게
+        width: 40px;
+        height: 40px;
         font-size: 0.9rem;
 
         &.prev {
@@ -278,8 +295,9 @@
 
       .fullscreen-counter {
         bottom: 1rem;
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
       }
     }
   }
 }
-
