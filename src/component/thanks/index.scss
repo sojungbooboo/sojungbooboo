@@ -26,24 +26,55 @@
     .content {
       .thanks-text {
         .quote {
-          font-size: 1.1rem;
-          line-height: 2.2;
+          font-size: 0.85rem;
+          line-height: 1.8;
           color: var(--text-dark);
-          margin-bottom: 1.5rem;
-          font-style: italic;
+          margin-bottom: 1rem;
+          font-style: normal; // 이탤릭 제거
+          text-decoration: none; // (혹시 있을 수 있는) 밑줄 등 효과 제거
         }
 
         .quote-author {
-          font-size: 0.95rem;
-          line-height: 2;
+          font-size: 0.8rem;
+          line-height: 1.6;
           color: var(--text-light);
-          margin-bottom: 2.5rem;
+          margin-bottom: 1.75rem;
+          font-style: normal;
+          text-decoration: none;
         }
 
         .message {
-          font-size: 1.05rem;
-          line-height: 2;
+          font-size: 0.9rem;
+          line-height: 1.8;
           color: var(--text-dark);
+          font-style: normal;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .thanks-text-section {
+    padding: 1.75rem 1.25rem;
+
+    .thanks {
+      .content {
+        .thanks-text {
+          .quote {
+            font-size: 0.8rem;
+            line-height: 1.75;
+          }
+
+          .quote-author {
+            font-size: 0.75rem;
+          }
+
+          .message {
+            font-size: 0.85rem;
+            line-height: 1.75;
+          }
         }
       }
     }
