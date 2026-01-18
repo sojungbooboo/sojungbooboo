@@ -2,11 +2,26 @@ import { useState, useEffect } from "react"
 import "./index.scss"
 
 export const Cover = () => {
-  const [showIntro, setShowIntro] = useState(true)
+  /**
+   * INTRO(We Got Married!) 임시 비활성화용 토글
+   * - true로 바꾸면 기존 인트로/타이밍 로직이 다시 활성화됩니다.
+   */
+  const ENABLE_INTRO = false
+
+  const [showIntro, setShowIntro] = useState(ENABLE_INTRO)
   const [showContent, setShowContent] = useState(false)
   const [animatedChars, setAnimatedChars] = useState<string[]>([])
 
   useEffect(() => {
+    // INTRO 비활성화: Junghwa & Sohyun을 0.5초 후 바로 노출
+    // (기존 "인트로 끝난 뒤 등장" 딜레이 로직은 임시로 우회)
+    if (!ENABLE_INTRO) {
+      const t = window.setTimeout(() => {
+        setShowContent(true)
+      }, 500)
+      return () => window.clearTimeout(t)
+    }
+
     // 글자별 애니메이션 시작
     const text = ["We", "Got", "Married"]
     const allChars = text.join(" ").split("")
@@ -37,14 +52,14 @@ export const Cover = () => {
     setTimeout(animateChars, 200)
 
     return () => {}
-  }, [])
+  }, [ENABLE_INTRO])
 
   const textLines = ["We", "Got", "Married!"]
 
   return (
     <div className="cover">
-      {/* 인트로 오버레이 */}
-      {showIntro && (
+      {/* INTRO(We Got Married!) 임시 주석처리: ENABLE_INTRO를 true로 바꾸면 다시 보입니다. */}
+      {ENABLE_INTRO && showIntro && (
         <div className="intro-overlay">
           <div className="intro-text">
             {textLines.map((line, lineIndex) => {

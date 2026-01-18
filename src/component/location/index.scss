@@ -64,11 +64,12 @@
         box-sizing: border-box;
 
         &:hover:not(.copied) {
-          background-color: #c49564;
+          // primary-color 살짝 다크한 톤 (hover)
+          background-color: #E16BA7;
         }
 
         &.copied {
-          background-color: #e8d5c4;
+          background-color: var(--primary-light);
           color: var(--text-dark);
           cursor: default;
         }
