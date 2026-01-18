@@ -30,7 +30,7 @@ export const Thanks = () => {
       <LazyDiv className="thanks-image-section">
         <div className="thanks-image">
           <img
-            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80"
+            src={`${import.meta.env.BASE_URL}images/18_LWR01756-.jpg`}
             alt="Thanks"
           />
         </div>

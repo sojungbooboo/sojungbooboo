@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Cover } from './component/cover';
 import { Thanks } from './component/thanks';
+import { BridgeImage } from './component/bridgeImage';
 import { Venue } from './component/venue';
 import { DateInfo } from './component/dateInfo';
 import { CoupleInfo } from './component/coupleInfo';
@@ -33,8 +34,22 @@ function App() {
       {/* 메인 화면 (랜딩 페이지) */}
       <Cover />
 
+      {/* 브릿지 이미지 1 (초대 문구 위) */}
+      <BridgeImage 
+        imagePath="16_LWR01686-1.jpg" 
+        alt="Bridge Image 1"
+        enableParallax={true}
+      />
+
       {/* 감사인사 */}
       <Thanks />
+
+      {/* 브릿지 이미지 2 (초대 문구 아래) */}
+      <BridgeImage 
+        imagePath="17_LWR01595-1.jpg" 
+        alt="Bridge Image 2"
+        enableParallax={true}
+      />
 
       {/* 일시 */}
       <LazyDiv className='section date-section'>
