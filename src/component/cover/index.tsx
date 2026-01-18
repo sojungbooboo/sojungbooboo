@@ -30,10 +30,10 @@ export const Cover = () => {
 
       {/* 텍스트 컨텐츠 */}
       <div className="hero-content">
-        {/* 영문 이름 (중앙 상단) - 성 제거 */}
+        {/* 영문 이름 (중앙 상단) - 세 줄 레이아웃 */}
         <div className={`hero-names ${isVisible ? 'visible' : ''}`}>
           <h1 className="groom-name">JUNG HWA</h1>
-          <span className="divider">&</span>
+          <div className="divider">&</div>
           <h1 className="bride-name">SO HYUN</h1>
         </div>
 
