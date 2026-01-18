@@ -3,7 +3,7 @@ import { GROOM_ENGLISH_NAME, BRIDE_ENGLISH_NAME, WEDDING_DATE, WEDDING_DATE_FORM
 import "./index.scss"
 
 // 메인 히어로 이미지 경로
-const HERO_IMAGE = `${import.meta.env.BASE_URL}images/04_LWR00438-.jpg`
+const HERO_IMAGE = `${import.meta.env.BASE_URL}images/4.jpg`
 
 export const Cover = () => {
   const [isVisible, setIsVisible] = useState(false)

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback, useMemo } from "react"
 import { createPortal } from "react-dom"
 import "./index.scss"
 
@@ -20,35 +20,90 @@ const images = [
   `${baseUrl}images/13.jpg`,
 ]
 
+// 이미지 프리패칭 함수
+const prefetchImage = (src: string): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    img.onload = () => resolve()
+    img.onerror = reject
+    img.src = src
+  })
+}
+
 export const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [fullscreenIndex, setFullscreenIndex] = useState(0)
 
-  const handlePrev = () => {
+  // 이미지 프리패칭: 현재 인덱스 변경 시 다음/이전 이미지 미리 로드
+  useEffect(() => {
+    // 다음 이미지 인덱스 (순환 구조)
+    const nextIndex = (currentIndex + 1) % images.length
+    // 이전 이미지 인덱스 (순환 구조)
+    const prevIndex = (currentIndex - 1 + images.length) % images.length
+
+    // 다음 이미지 프리패칭
+    prefetchImage(images[nextIndex]).catch(() => {
+      // 에러 무시 (이미지 로드 실패해도 계속 진행)
+    })
+
+    // 이전 이미지 프리패칭
+    prefetchImage(images[prevIndex]).catch(() => {
+      // 에러 무시
+    })
+  }, [currentIndex])
+
+  // Fullscreen 인덱스 변경 시에도 프리패칭
+  useEffect(() => {
+    if (!isFullscreen) return
+
+    const nextIndex = (fullscreenIndex + 1) % images.length
+    const prevIndex = (fullscreenIndex - 1 + images.length) % images.length
+
+    prefetchImage(images[nextIndex]).catch(() => {})
+    prefetchImage(images[prevIndex]).catch(() => {})
+  }, [fullscreenIndex, isFullscreen])
+
+  // 초기 로드 시 첫 번째 이미지 주변 프리패칭
+  useEffect(() => {
+    const nextIndex = 1 % images.length
+    const prevIndex = (images.length - 1) % images.length
+
+    prefetchImage(images[nextIndex]).catch(() => {})
+    prefetchImage(images[prevIndex]).catch(() => {})
+  }, [])
+
+  const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }
+  }, [])
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-  }
+  }, [])
 
-  const handleImageClick = (index: number) => {
+  const handleImageClick = useCallback((index: number) => {
     setFullscreenIndex(index)
     setIsFullscreen(true)
-  }
+  }, [])
 
-  const handleCloseFullscreen = () => {
+  const handleCloseFullscreen = useCallback(() => {
     setIsFullscreen(false)
-  }
+  }, [])
 
-  const handleFullscreenPrev = () => {
+  const handleFullscreenPrev = useCallback(() => {
     setFullscreenIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }
+  }, [])
 
-  const handleFullscreenNext = () => {
+  const handleFullscreenNext = useCallback(() => {
     setFullscreenIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-  }
+  }, [])
+
+  // 렌더링할 이미지 인덱스 계산 (메모이제이션)
+  const visibleImageIndices = useMemo(() => {
+    const prev = (currentIndex - 1 + images.length) % images.length
+    const next = (currentIndex + 1) % images.length
+    return { prev, current: currentIndex, next }
+  }, [currentIndex])
 
   useEffect(() => {
     if (!isFullscreen) return
@@ -66,7 +121,7 @@ export const Gallery = () => {
       document.removeEventListener("keydown", handleEscape)
       document.body.style.overflow = ""
     }
-  }, [isFullscreen])
+  }, [isFullscreen, handleCloseFullscreen])
 
   return (
     <>
@@ -76,15 +131,10 @@ export const Gallery = () => {
         <div className="content">
           <div className="gallery-container">
             <div className="gallery-viewport">
-              {images.map((img, idx) => {
-                const isPrev = idx === (currentIndex - 1 + images.length) % images.length
-                const isNext = idx === (currentIndex + 1) % images.length
-                const isCurrent = idx === currentIndex
-
-                // 현재, 이전, 다음 이미지만 렌더링
-                if (!isCurrent && !isPrev && !isNext) {
-                  return null
-                }
+              {[visibleImageIndices.prev, visibleImageIndices.current, visibleImageIndices.next].map((idx) => {
+                const isPrev = idx === visibleImageIndices.prev
+                const isNext = idx === visibleImageIndices.next
+                const isCurrent = idx === visibleImageIndices.current
 
                 return (
                   <div
@@ -92,7 +142,7 @@ export const Gallery = () => {
                     className={`gallery-item ${isCurrent ? "current" : ""} ${isPrev ? "prev" : ""} ${isNext ? "next" : ""}`}
                     onClick={() => isCurrent && handleImageClick(idx)}
                   >
-                    <img src={img} alt={`Gallery ${idx + 1}`} />
+                    <img src={images[idx]} alt={`Gallery ${idx + 1}`} loading="lazy" />
                   </div>
                 )
               })}
@@ -136,4 +186,3 @@ export const Gallery = () => {
     </>
   )
 }
-
