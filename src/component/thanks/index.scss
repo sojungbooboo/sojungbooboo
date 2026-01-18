@@ -1,15 +1,16 @@
-// 감사인사 텍스트 섹션
+// 감사인사 텍스트 섹션 (강제 스타일 적용)
 .thanks-text-section {
-  width: 100%;
+  width: 100% !important;
   min-height: calc(var(--vh, 1vh) * 100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  background-color: var(--bg-white); // 완전한 화이트 배경
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 60px 20px !important;
+  background-color: #ffffff !important; // 완전한 화이트 배경 강제
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  box-sizing: border-box !important;
 
   &.lazy-active {
     opacity: 1;
@@ -17,98 +18,69 @@
   }
 
   .thanks {
-    text-align: center; // 가운데 정렬
-    width: 100%;
-    max-width: 500px; // 모바일 컨테이너와 통일
-    margin: 0 auto;
+    text-align: center !important; // 가운데 정렬 강제
+    width: 100% !important;
+    max-width: 500px !important; // 모바일 컨테이너와 통일
+    margin: 0 auto !important;
 
     h2 {
       margin-bottom: 3rem;
     }
 
     .content {
+      width: 100% !important;
+
       .thanks-text {
+        text-align: center !important; // 가운데 정렬 강제
+        width: 100% !important;
+
         .quote {
-          font-family: var(--font-body); // Sans-serif (Pretendard)
-          font-size: 0.85rem;
-          line-height: 1.8; // 넓은 줄 간격
-          color: var(--text-dark);
-          margin-bottom: 1rem;
-          font-style: normal;
-          text-decoration: none;
+          font-family: var(--font-body) !important; // Sans-serif (Pretendard)
+          font-size: 0.95rem !important; // 폰트 크기 증가
+          line-height: 2.0 !important; // 넓은 줄 간격 (감성적)
+          color: var(--text-dark) !important;
+          margin-bottom: 1rem !important;
+          font-style: normal !important;
+          text-decoration: none !important;
+          text-align: center !important;
         }
 
         .quote-author {
-          font-family: var(--font-body);
-          font-size: 0.8rem;
-          line-height: 1.8; // 넓은 줄 간격
-          color: var(--text-light);
-          margin-bottom: 1.75rem;
-          font-style: normal;
-          text-decoration: none;
+          font-family: var(--font-body) !important;
+          font-size: 0.85rem !important;
+          line-height: 2.0 !important; // 넓은 줄 간격
+          color: var(--text-light) !important;
+          margin-bottom: 1.75rem !important;
+          font-style: normal !important;
+          text-decoration: none !important;
+          text-align: center !important;
         }
 
         .message {
-          font-family: var(--font-body);
-          font-size: 0.9rem;
-          line-height: 1.8; // 넓은 줄 간격
-          color: var(--text-dark);
-          font-style: normal;
-          text-decoration: none;
+          font-family: var(--font-body) !important;
+          font-size: 0.95rem !important; // 폰트 크기 증가
+          line-height: 2.0 !important; // 넓은 줄 간격 (감성적)
+          color: var(--text-dark) !important;
+          font-style: normal !important;
+          text-decoration: none !important;
+          text-align: center !important;
         }
       }
     }
   }
 }
 
-@media (max-width: 500px) {
-  .thanks-text-section {
-    padding: 60px 20px; // 모바일에서도 충분한 여백
-
-    .thanks {
-      max-width: 100%; // 모바일에서 전체 너비 사용
-
-      .content {
-        .thanks-text {
-          .quote {
-            font-size: 0.8rem;
-            line-height: 1.8; // 넓은 줄 간격 유지
-          }
-
-          .quote-author {
-            font-size: 0.75rem;
-            line-height: 1.8;
-          }
-
-          .message {
-            font-size: 0.85rem;
-            line-height: 1.8; // 넓은 줄 간격 유지
-          }
-        }
-      }
-    }
-  }
-
-  .thanks-image-section {
-    .thanks-image {
-      img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-      }
-    }
-  }
-}
-
-// 감사인사 이미지 섹션 (풀스크린)
+// 감사인사 이미지 섹션 (강제 스타일 적용)
 .thanks-image-section {
-  width: 100%;
-  padding: 0;
-  margin: 0;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  overflow: hidden; // 오버플로우 방지
+  overflow: hidden !important; // 오버플로우 방지 강제
+  box-sizing: border-box !important;
 
   &.lazy-active {
     opacity: 1;
@@ -116,20 +88,67 @@
   }
 
   .thanks-image {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     position: relative;
-    overflow: hidden;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
 
     img {
-      width: 100%; // 부모 컨테이너 너비에 맞춤
-      height: auto; // 비율 유지
-      max-width: 100%; // 최대 너비 제한
-      object-fit: cover; // 비율 유지하며 채움
-      object-position: center;
-      display: block;
+      width: 100% !important; // 부모 컨테이너 너비에 맞춤 강제
+      max-width: 100% !important; // 최대 너비 제한 강제
+      height: auto !important; // 비율 유지 강제
+      object-fit: cover !important; // 비율 유지하며 채움
+      object-position: center !important;
+      display: block !important;
+      box-sizing: border-box !important;
     }
   }
 }
 
+@media (max-width: 500px) {
+  .thanks-text-section {
+    padding: 60px 20px !important; // 모바일에서도 충분한 여백
+
+    .thanks {
+      max-width: 100% !important; // 모바일에서 전체 너비 사용
+
+      .content {
+        .thanks-text {
+          .quote {
+            font-size: 0.9rem !important;
+            line-height: 2.0 !important; // 넓은 줄 간격 유지
+          }
+
+          .quote-author {
+            font-size: 0.8rem !important;
+            line-height: 2.0 !important;
+          }
+
+          .message {
+            font-size: 0.9rem !important;
+            line-height: 2.0 !important; // 넓은 줄 간격 유지
+          }
+        }
+      }
+    }
+  }
+
+  .thanks-image-section {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    .thanks-image {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+      }
+    }
+  }
+}
