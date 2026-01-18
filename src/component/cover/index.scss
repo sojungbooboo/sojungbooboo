@@ -77,12 +77,20 @@
     }
 
     .divider {
-      font-family: var(--font-title-en);
-      font-size: clamp(1.2rem, 5vw, 2rem);
-      font-weight: 300;
+      // 옵션 A: 캘리그라피 스타일 폰트 (Great Vibes)
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 7vw, 3rem);
+      font-weight: 400;
       color: #ffffff; // 흰색
-      margin: 0 1rem;
-      opacity: 0.8;
+      margin: 0 1.2rem;
+      opacity: 0.9;
+      line-height: 1;
+      transform: translateY(-0.1em); // 약간 위로 올려서 중앙 정렬
+
+      // 옵션 B: 현재 Serif 폰트의 Italic 스타일을 사용하려면 아래 주석 해제
+      // font-family: var(--font-title-en);
+      // font-style: italic;
+      // font-size: clamp(1.5rem, 6vw, 2.5rem);
     }
 
     display: flex;
