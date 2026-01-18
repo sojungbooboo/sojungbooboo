@@ -10,7 +10,7 @@
       font-weight: 600; // App.scss와 통일
       color: var(--text-dark);
       margin-bottom: 2rem; // App.scss와 통일
-      font-family: 'Playfair Display', 'Gowun Batang', serif; // App.scss와 통일
+      font-family: var(--font-title-en);
       letter-spacing: 0.1em;
       text-transform: uppercase; // 대문자로
     }
@@ -53,7 +53,7 @@
           font-weight: 600;
           color: var(--text-dark);
           margin-bottom: 1rem;
-          font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
+          font-family: var(--font-title-ko);
         }
 
         .notice-text {

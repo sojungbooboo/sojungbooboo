@@ -26,10 +26,10 @@
       }
 
       .date-text {
-        font-family: 'Playfair Display', 'Gowun Batang', serif;
+        font-family: var(--font-title-en);
         font-size: 6rem;
         font-weight: 400;
-        color: #ffffff;
+        color: var(--text-dark);
         letter-spacing: 0.02em;
         opacity: 0;
         transform: translateY(30px) scale(0.8);

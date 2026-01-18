@@ -1,23 +1,27 @@
 :root {
-  // 포인트 컬러 (핑크)
-  --primary-color: #ED71B0;
-  // 서브 컬러 (연핑크)
-  --primary-light: #FCABD4;
-  --text-dark: #2c2c2c;
-  --text-light: #666666;
+  /* Black & White Minimalism */
   --bg-white: #ffffff;
-  // 배경용 소프트 핑크(미색) 2종 (섹션 구분용)
-  --bg-soft-1: #FFF4FA;
-  --bg-soft-2: #FFE8F3;
-  // 조금 더 회색끼 도는 연핑크 (INFORMATION용)
-  --bg-soft-3: #F6EEF2;
-  // 기존 변수 호환 (필요한 곳에서 사용)
-  --bg-cream: var(--bg-soft-1);
-  --bg-pink: var(--bg-soft-1);
-  --bg-beige: var(--bg-soft-2);
-  --bg-gold: var(--bg-soft-2);
-  --bg-gray: var(--bg-soft-2);
-  --border-color: #F3C1DB;
+  --text-dark: #111111;
+  --text-light: #666666;
+  --border-color: #e5e5e5;
+
+  /* Typography */
+  --font-title-en: "Playfair Display", serif;
+  --font-title-ko: "Noto Serif KR", serif;
+  --font-body: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+
+  /* Legacy aliases (avoid breaking component styles) */
+  --primary-color: var(--text-dark);
+  --primary-light: #f4f4f4;
+  --bg-soft-1: var(--bg-white);
+  --bg-soft-2: var(--bg-white);
+  --bg-soft-3: var(--bg-white);
+  --bg-cream: var(--bg-white);
+  --bg-pink: var(--bg-white);
+  --bg-beige: var(--bg-white);
+  --bg-gold: var(--bg-white);
+  --bg-gray: var(--bg-white);
 }
 
 * {
@@ -41,8 +45,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-family: var(--font-body);
   color: var(--text-dark);
   background-color: var(--bg-white);
   -webkit-font-smoothing: antialiased;
@@ -91,21 +94,21 @@ body {
   }
 }
 
-// 섹션별 배경색
+// 섹션별 배경색 (무채색 통일)
 .venue-section {
   background-color: var(--bg-white);
 }
 
 .date-section {
-  background-color: var(--primary-color);
+  background-color: var(--bg-white);
 }
 
 .couple-info {
-  background-color: var(--bg-soft-1);
+  background-color: var(--bg-white);
 }
 
 .countdown-section {
-  background-color: var(--bg-soft-2);
+  background-color: var(--bg-white);
 }
 
 .gallery-section {
@@ -113,16 +116,15 @@ body {
 }
 
 .location-section {
-  background-color: var(--bg-soft-1);
+  background-color: var(--bg-white);
 }
 
 .transportation-section {
-  // 지도 섹션과 배경색 통일
-  background-color: var(--bg-soft-1);
+  background-color: var(--bg-white);
 }
 
 .notice-section {
-  background-color: var(--bg-soft-3);
+  background-color: var(--bg-white);
 }
 
 .accounts-section {
@@ -149,8 +151,9 @@ div[style*="triangle.png"] {
 h1,
 h2,
 h3 {
-  font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
-  font-weight: 700;
+  font-family: var(--font-title-ko);
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 h2 {
@@ -160,9 +163,9 @@ h2 {
   color: var(--text-dark);
 
   &.english-title {
-    font-family: 'Playfair Display', 'Gowun Batang', serif;
-    font-weight: 600;
-    letter-spacing: 0.1em; // INFORMATION과 통일
+    font-family: var(--font-title-en);
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase; // 모든 영어 제목 대문자로
   }
 }

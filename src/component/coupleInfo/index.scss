@@ -36,10 +36,10 @@
 
         .english-name {
           font-size: 1rem;
-          color: var(--primary-color);
-          font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
-          font-weight: 700;
-          letter-spacing: 0.05em;
+          color: var(--text-dark);
+          font-family: var(--font-title-en);
+          font-weight: 500;
+          letter-spacing: 0.12em;
         }
       }
     }
@@ -47,8 +47,8 @@
     .divider {
       margin: 2rem 0;
       font-size: 20px;
-      color: var(--primary-color);
-      font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
+      color: var(--text-dark);
+      font-family: var(--font-title-ko);
       font-weight: 400;
     }
   }

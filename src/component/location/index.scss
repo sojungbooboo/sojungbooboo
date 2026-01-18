@@ -40,7 +40,7 @@
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 1rem;
-      font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
+      font-family: var(--font-title-ko);
     }
 
     .address-section {
@@ -52,28 +52,28 @@
 
       .copy-button {
         padding: 0.75rem 1.5rem;
-        background-color: var(--primary-color);
-        color: #ffffff;
-        border: none;
+        background-color: var(--bg-white);
+        color: var(--text-dark);
+        border: 1px solid var(--border-color);
         border-radius: 6px;
         font-size: 0.95rem;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
         width: 120px; // 주소 복사/복사됨 텍스트 변경 시 width 고정
         text-align: center;
         box-sizing: border-box;
 
         &:hover:not(.copied) {
-          // primary-color 살짝 다크한 톤 (hover)
-          background-color: #E16BA7;
+          background-color: #f7f7f7;
+          border-color: var(--text-dark);
         }
 
         &.copied {
-          // "복사됨" 상태는 흰색 글자
-          background-color: var(--primary-color);
+          background-color: var(--text-dark);
           color: #ffffff;
           opacity: 0.85;
           cursor: default;
+          border-color: var(--text-dark);
         }
       }
     }

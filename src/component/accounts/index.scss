@@ -35,7 +35,7 @@
       .account-button {
         padding: 1rem 1.5rem;
         background-color: #ffffff;
-        color: var(--primary-color); // 포인트 컬러 텍스트
+        color: var(--text-dark);
         border: 1px solid var(--border-color);
         border-radius: 8px;
         font-size: 1rem;
@@ -50,12 +50,12 @@
         .chevron {
           font-size: 0.65rem; // 삼각형 높이(크기) 축소
           line-height: 1;
-          color: var(--primary-color); // 포인트 컬러
+          color: var(--text-dark);
         }
 
         &:hover {
-          background-color: var(--bg-cream);
-          border-color: var(--primary-color);
+          background-color: #f7f7f7;
+          border-color: var(--text-dark);
         }
       }
     }
@@ -67,7 +67,7 @@
     border-top: 1px solid var(--border-color);
 
     .share-title {
-      font-family: 'Playfair Display', 'Gowun Batang', serif;
+      font-family: var(--font-title-en);
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
       color: var(--text-dark);
@@ -91,30 +91,28 @@
 
       .share-button {
         padding: 1rem 1.5rem;
-        border: none;
+        border: 1px solid var(--border-color);
         border-radius: 8px;
         font-size: 0.9rem; // 폰트 크기 줄임
-        font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
         cursor: pointer;
         transition: all 0.3s ease;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        // 연한 핑크 배경
-        color: #ffffff; // 텍스트 화이트
-        background-color: var(--primary-light);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        color: var(--text-dark);
+        background-color: var(--bg-white);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 
         .icon {
           font-size: 0.9rem;
-          color: #ffffff; // 아이콘 화이트
-          opacity: 0.9;
+          color: var(--text-dark);
+          opacity: 0.8;
         }
 
         &.kakao-share-button {
           &:hover {
-            background-color: #F89BC9;
+            background-color: #f7f7f7;
+            border-color: var(--text-dark);
           }
         }
 
@@ -123,15 +121,16 @@
           box-sizing: border-box;
           
           &:hover:not(.copied) {
-            background-color: #F89BC9;
+            background-color: #f7f7f7;
+            border-color: var(--text-dark);
           }
 
           &.copied {
-            // "복사됨" 상태는 흰색 글자
-            background-color: var(--primary-color);
+            background-color: var(--text-dark);
             color: #ffffff;
             opacity: 0.85;
             cursor: default;
+            border-color: var(--text-dark);
 
             .icon {
               color: #ffffff;
@@ -178,7 +177,7 @@
 
       .copy-button {
         padding: 0.5rem 1rem;
-        background-color: var(--primary-color);
+        background-color: var(--text-dark);
         color: #ffffff;
         border: none;
         border-radius: 6px;
@@ -190,13 +189,12 @@
         box-sizing: border-box;
 
         &:hover:not(.copied) {
-          // primary-color 살짝 다크한 톤 (hover)
-          background-color: #E16BA7;
+          background-color: #000000;
         }
 
         &.copied {
           // "복사됨" 상태는 흰색 글자
-          background-color: var(--primary-color);
+          background-color: var(--text-dark);
           color: #ffffff;
           opacity: 0.85;
           cursor: default;
