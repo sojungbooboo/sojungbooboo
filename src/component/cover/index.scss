@@ -123,22 +123,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.1rem;
       margin-bottom: 3rem;
       font-family: 'Gowun Batang', 'Nanum Myeongjo', 'Malgun Gothic', serif;
-      flex-wrap: wrap; // 안드로이드 등에서 글자 잘림 방지
+      flex-wrap: nowrap; // PC에서도 한 줄 유지
       max-width: 100%;
-      row-gap: 0.75rem;
+      white-space: nowrap;
 
       .groom-name,
       .bride-name {
-        font-size: clamp(1.6rem, 7vw, 2.5rem);
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
         font-weight: 700;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.06em;
       }
 
       .divider {
-        font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+        font-size: clamp(1.05rem, 4vw, 1.35rem);
         opacity: 0.8;
       }
     }
@@ -219,6 +219,8 @@
       .names {
         gap: 1rem;
         margin-bottom: 2rem;
+        flex-wrap: nowrap;
+        white-space: nowrap;
 
         .groom-name,
         .bride-name {

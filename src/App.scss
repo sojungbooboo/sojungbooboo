@@ -9,6 +9,8 @@
   // 배경용 소프트 핑크(미색) 2종 (섹션 구분용)
   --bg-soft-1: #FFF4FA;
   --bg-soft-2: #FFE8F3;
+  // 조금 더 회색끼 도는 연핑크 (INFORMATION용)
+  --bg-soft-3: #F6EEF2;
   // 기존 변수 호환 (필요한 곳에서 사용)
   --bg-cream: var(--bg-soft-1);
   --bg-pink: var(--bg-soft-1);
@@ -120,7 +122,7 @@ body {
 }
 
 .notice-section {
-  background-color: var(--bg-soft-1);
+  background-color: var(--bg-soft-3);
 }
 
 .accounts-section {
