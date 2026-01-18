@@ -10,7 +10,7 @@ export const Notice = () => {
         <div className="notice-card">
           <div className="notice-image">
             <img
-              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80"
+              src={`${import.meta.env.BASE_URL}images/26_LWR02106-1.jpg`}
               alt="Notice"
             />
           </div>

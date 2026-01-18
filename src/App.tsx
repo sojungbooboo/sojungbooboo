@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Cover } from './component/cover';
-import { Thanks } from './component/thanks';
 import { BridgeImage } from './component/bridgeImage';
 import { Venue } from './component/venue';
 import { DateInfo } from './component/dateInfo';
@@ -31,67 +30,106 @@ function App() {
   }, []);
   return (
     <div className='app'>
-      {/* 메인 화면 (랜딩 페이지) */}
+      {/* 1. Hero Section */}
       <Cover />
 
-      {/* 브릿지 이미지 1 (초대 문구 위) */}
-      <BridgeImage 
-        imagePath="16_LWR01686-1.jpg" 
-        alt="Bridge Image 1"
-        enableParallax={true}
-      />
+      {/* 2. Thanks Text Section */}
+      <LazyDiv className="thanks-text-section">
+        <div className="thanks">
+          <div className="content">
+            <div className="thanks-text">
+              <p className="quote">
+                사람이 온다는 건 실은 어마어마한 일이다.
+                <br />
+                그는 그의 과거와 현재와 그리고
+                <br />
+                그의 미래와 함께 오기 때문이다.
+                <br />
+                한 사람의 일생이 오기 때문이다.
+              </p>
+              <p className="quote-author">- 정현종, '방문객'</p>
+              <p className="message">
+                저희 두 사람이 함께하는 새로운 시작에
+                <br />
+                귀한 발걸음으로 축복해 주시면 감사하겠습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </LazyDiv>
 
-      {/* 감사인사 */}
-      <Thanks />
+      {/* 3. Thanks Image Section */}
+      <LazyDiv className="thanks-image-section">
+        <div className="thanks-image">
+          <img
+            src={`${import.meta.env.BASE_URL}images/18_LWR01756-.jpg`}
+            alt="Thanks"
+          />
+        </div>
+      </LazyDiv>
 
-      {/* 브릿지 이미지 2 (초대 문구 아래) */}
-      <BridgeImage 
-        imagePath="17_LWR01595-1.jpg" 
-        alt="Bridge Image 2"
-        enableParallax={true}
-      />
-
-      {/* 일시 */}
+      {/* 4. Date Section */}
       <LazyDiv className='section date-section'>
         <DateInfo />
       </LazyDiv>
 
-      {/* 예식장 */}
+      {/* 5. Bridge Image #1 */}
+      <BridgeImage 
+        imagePath="14_LWR01352-1.jpg" 
+        alt="Bridge Image 1"
+        enableParallax={true}
+      />
+
+      {/* 6. Venue Section */}
       <LazyDiv className='section venue-section'>
         <Venue />
       </LazyDiv>
 
-      {/* 부부소개 */}
+      {/* 7. Bridge Image #2 (신랑 독사진 추천) */}
+      <BridgeImage 
+        imagePath="23_LWR01860-.jpg" 
+        alt="Bridge Image 2"
+        enableParallax={true}
+      />
+
+      {/* 8. Couple Info Section */}
       <LazyDiv className='section couple-info'>
         <CoupleInfo />
       </LazyDiv>
 
-      {/* 디데이 */}
+      {/* 9. Bridge Image #3 (신부 독사진 추천) */}
+      <BridgeImage 
+        imagePath="22_LWR02071_파란하늘o-.jpg" 
+        alt="Bridge Image 3"
+        enableParallax={true}
+      />
+
+      {/* 10. 디데이 */}
       <LazyDiv className='section countdown-section'>
         <Countdown />
       </LazyDiv>
 
-      {/* 사진 갤러리 */}
+      {/* 11. 사진 갤러리 */}
       <LazyDiv className='section gallery-section'>
         <Gallery />
       </LazyDiv>
 
-      {/* 오시는 길 */}
+      {/* 12. 오시는 길 */}
       <LazyDiv className='section location-section'>
         <Location />
       </LazyDiv>
 
-      {/* 교통 안내 */}
+      {/* 13. 교통 안내 */}
       <LazyDiv className='section transportation-section'>
         <Transportation />
       </LazyDiv>
 
-      {/* 안내사항 */}
+      {/* 14. 안내사항 */}
       <LazyDiv className='section notice-section'>
         <Notice />
       </LazyDiv>
 
-      {/* 마음 전하실 곳 */}
+      {/* 15. 마음 전하실 곳 */}
       <LazyDiv className='section accounts-section'>
         <Accounts />
       </LazyDiv>

@@ -2,14 +2,15 @@ import { useState, useEffect } from "react"
 import { createPortal } from "react-dom"
 import "./index.scss"
 
-// 더미 이미지 데이터
+// 실제 이미지 데이터
+const baseUrl = import.meta.env.BASE_URL
 const images = [
-  "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80",
-  "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80",
-  "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80",
-  "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=400&q=80",
-  "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&q=80",
+  `${baseUrl}images/05_LWR00548_액자컷-.jpg`,
+  `${baseUrl}images/26_LWR02106-1.jpg`,
+  `${baseUrl}images/LWR02002.jpg`,
+  `${baseUrl}images/16_LWR01686-1.jpg`,
+  `${baseUrl}images/17_LWR01595-1.jpg`,
+  `${baseUrl}images/14_LWR01352-1.jpg`,
 ]
 
 export const Gallery = () => {
