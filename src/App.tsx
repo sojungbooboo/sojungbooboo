@@ -62,7 +62,7 @@ function App() {
       <LazyDiv className="thanks-image-section">
         <div className="thanks-image">
           <img
-            src={`${import.meta.env.BASE_URL}images/18_LWR01756-.jpg`}
+            src={`${import.meta.env.BASE_URL}images/1.jpeg`}
             alt="Thanks"
           />
         </div>
@@ -73,33 +73,26 @@ function App() {
         <DateInfo />
       </LazyDiv>
 
-      {/* 5. Bridge Image #1 */}
-      <BridgeImage 
-        imagePath="14_LWR01352-1.jpg" 
-        alt="Bridge Image 1"
-        enableParallax={true}
-      />
-
-      {/* 6. Venue Section */}
+      {/* 5. Venue Section */}
       <LazyDiv className='section venue-section'>
         <Venue />
       </LazyDiv>
 
-      {/* 7. Bridge Image #2 (신랑 독사진 추천) */}
+      {/* 6. Bridge Image #2 (신랑 독사진 추천) */}
       <BridgeImage 
-        imagePath="23_LWR01860-.jpg" 
+        imagePath="2.jpeg" 
         alt="Bridge Image 2"
         enableParallax={true}
       />
 
-      {/* 8. Couple Info Section */}
+      {/* 7. Couple Info Section */}
       <LazyDiv className='section couple-info'>
         <CoupleInfo />
       </LazyDiv>
 
-      {/* 9. Bridge Image #3 (신부 독사진 추천) */}
+      {/* 8. Bridge Image #3 (신부 독사진 추천) */}
       <BridgeImage 
-        imagePath="22_LWR02071_파란하늘o-.jpg" 
+        imagePath="3.jpeg" 
         alt="Bridge Image 3"
         enableParallax={true}
       />
