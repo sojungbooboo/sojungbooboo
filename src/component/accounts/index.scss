@@ -38,7 +38,7 @@
         color: var(--text-dark);
         border: 1px solid var(--border-color);
         border-radius: 8px;
-        font-size: 1rem;
+        font-size: 0.9rem; // 약 14.4px 정도 (기본 16px 기준)
         cursor: pointer;
         transition: all 0.3s ease;
         display: flex;
@@ -48,9 +48,7 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
         .chevron {
-          font-size: 0.65rem; // 삼각형 높이(크기) 축소
-          line-height: 1;
-          color: var(--text-dark);
+          display: none; // 우측 삼각형 아이콘 제거
         }
 
         &:hover {
