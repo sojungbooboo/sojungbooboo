@@ -64,13 +64,13 @@ export const Gallery = () => {
     prefetchImage(images[prevIndex]).catch(() => {})
   }, [fullscreenIndex, isFullscreen])
 
-  // 초기 로드 시 첫 번째 이미지 주변 프리패칭
+  // 초기 로드 시 전체 이미지 프리패칭 (용량이 크더라도 첫 방문 시 한 번만 로드)
   useEffect(() => {
-    const nextIndex = 1 % images.length
-    const prevIndex = (images.length - 1) % images.length
-
-    prefetchImage(images[nextIndex]).catch(() => {})
-    prefetchImage(images[prevIndex]).catch(() => {})
+    images.forEach((src) => {
+      prefetchImage(src).catch(() => {
+        // 개별 이미지 로드 실패는 무시 (나머지 이미지 로드는 계속 진행)
+      })
+    })
   }, [])
 
   const handlePrev = useCallback(() => {
