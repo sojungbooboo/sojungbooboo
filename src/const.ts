@@ -44,9 +44,9 @@ export const BRIDE_MOTHER = "김경란"
 
 // 계좌 정보
 export const GROOM_ACCOUNTS = [
-  { name: "송선식", bank: "00은행", account: "000-000-000-000" },
-  { name: "노옥래", bank: "00은행", account: "000-000-000-000" },
-  { name: "송중화", bank: "00은행", account: "000-000-000-000" },
+  { name: "송선식", bank: "하나은행", account: "069-9-27018-5" },
+  { name: "노옥래", bank: "하나은행", account: "620-155689-551" },
+  { name: "송중화", bank: "케이뱅크", account: "100136847986" },
 ]
 
 export const BRIDE_ACCOUNTS = [

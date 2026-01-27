@@ -8,20 +8,16 @@ export const Thanks = () => {
         <div className="thanks">
           <div className="content">
             <div className="thanks-text">
-              <p className="quote">
-                사람이 온다는 건 실은 어마어마한 일이다.
-                <br />
-                그는 그의 과거와 현재와 그리고
-                <br />
-                그의 미래와 함께 오기 때문이다.
-                <br />
-                한 사람의 일생이 오기 때문이다.
-              </p>
-              <p className="quote-author">- 정현종, '방문객'</p>
               <p className="message">
-                저희 두 사람이 함께하는 새로운 시작에
+                꽃이 피어나는 계절,
                 <br />
-                귀한 발걸음으로 축복해 주시면 감사하겠습니다.
+                서로에게 봄이 되어준 저희 두 사람이
+                <br />
+                3월의 밝은 햇살 아래 새로운 시작을 하려 합니다.
+                <br />
+                저희의 사랑이 새로운 시작을 하는 뜻깊은 날
+                <br />
+                축복으로 함께해 주신다면 큰 기쁨이 되겠습니다.
               </p>
             </div>
           </div>
