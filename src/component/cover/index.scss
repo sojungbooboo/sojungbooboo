@@ -82,7 +82,7 @@
     }
 
     .divider {
-      font-family: var(--font-title-ko); // Noto Serif KR
+      font-family: var(--font-title-ko);
       // 이름 폰트 크기의 60-70% (이름: 2.5~4.5rem 기준으로 약 1.5~3rem)
       font-size: clamp(1.5rem, 6vw, 3rem);
       font-weight: 400;

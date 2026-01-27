@@ -17,7 +17,7 @@ export const Notice = () => {
           <div className="notice-text-section">
             <h3 className="notice-title">화환 안내</h3>
             <p className="notice-text">
-              장소가 협소하여 화환 받지 않음
+              장소가 협소하여 화환은 따로 받지 않습니다
             </p>
           </div>
         </div>

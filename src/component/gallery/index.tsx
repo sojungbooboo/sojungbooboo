@@ -115,11 +115,18 @@ export const Gallery = () => {
     }
 
     document.addEventListener("keydown", handleEscape)
+    // 전체보기 팝업이 열린 동안에는 바깥 페이지 스크롤 고정
     document.body.style.overflow = "hidden"
+    document.documentElement.style.overflow = "hidden"
+    document.body.classList.add("modal-open")
+    document.documentElement.classList.add("modal-open")
 
     return () => {
       document.removeEventListener("keydown", handleEscape)
       document.body.style.overflow = ""
+      document.documentElement.style.overflow = ""
+      document.body.classList.remove("modal-open")
+      document.documentElement.classList.remove("modal-open")
     }
   }, [isFullscreen, handleCloseFullscreen])
 
