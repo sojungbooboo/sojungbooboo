@@ -167,10 +167,13 @@
       }
 
       .account-info {
-        font-size: 0.95rem;
+        // 계좌번호가 한 줄에 들어가도록 약간 작은 폰트와 줄바꿈 제어
+        font-size: 0.85rem;
         color: var(--text-light);
         margin-bottom: 1rem;
-        word-break: break-all;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .copy-button {
