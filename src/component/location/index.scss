@@ -8,6 +8,38 @@
 
   .content {
     .map-container {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s,
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+    }
+
+    .venue-name {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s,
+                  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+    }
+
+    .address-section {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s,
+                  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+    }
+  }
+
+  .section.lazy-active & .content {
+    .map-container,
+    .venue-name,
+    .address-section {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .content {
+    .map-container {
       width: 100%;
       height: 300px;
       border-radius: 8px;

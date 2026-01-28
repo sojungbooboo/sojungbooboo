@@ -8,13 +8,47 @@
   padding: 60px 20px !important;
   background-color: #ffffff !important; // 완전한 화이트 배경 강제
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(40px) scale(0.96);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-sizing: border-box !important;
 
   &.lazy-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+
+  // 텍스트에 스태거 애니메이션
+  .thanks-text {
+    .message {
+      p {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+    }
+
+    .signature {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s,
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+    }
+  }
+
+  &.lazy-active {
+    .thanks-text {
+      .message p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .signature {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 
   .thanks {
@@ -86,14 +120,26 @@
   padding: 0 !important;
   margin: 0 !important;
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(50px) scale(0.95);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden !important; // 오버플로우 방지 강제
   box-sizing: border-box !important;
 
   &.lazy-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+
+  .thanks-image {
+    img {
+      transform: scale(1.05);
+      transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+
+  &.lazy-active .thanks-image img {
+    transform: scale(1);
   }
 
   .thanks-image {

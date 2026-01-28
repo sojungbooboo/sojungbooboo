@@ -5,11 +5,14 @@
   margin: 0;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 0.8s ease-out;
+  transform: scale(0.98);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   background-color: var(--bg-white);
 
   &.visible {
     opacity: 1;
+    transform: scale(1);
   }
 
   .bridge-image-inner {
