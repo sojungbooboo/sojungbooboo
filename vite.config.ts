@@ -3,9 +3,8 @@ import react from "@vitejs/plugin-react"
 import svgr from "vite-plugin-svgr"
 import { createHtmlPlugin } from "vite-plugin-html"
 import sharp from "sharp"
-import { existsSync } from "fs"
-import { join } from "path"
-import { fileURLToPath } from "url"
+import { existsSync, readdirSync, statSync } from "fs"
+import { join, extname, basename } from "path"
 
 const distFolder = "docs"
 // GitHub Pages 배포 시: const base = "/sojungbooboo/"
@@ -58,6 +57,51 @@ const imageCropPlugin = () => {
   }
 }
 
+// 이미지를 WebP로 변환하는 플러그인
+const webpConvertPlugin = () => {
+  return {
+    name: "webp-convert",
+    async writeBundle() {
+      const imagesDir = join(process.cwd(), "public", "images")
+      const outputDir = join(process.cwd(), distFolder, "images")
+
+      if (!existsSync(imagesDir)) {
+        console.warn(`⚠️  Images directory not found: ${imagesDir}`)
+        return
+      }
+
+      try {
+        const files = readdirSync(imagesDir)
+        const imageFiles = files.filter(
+          (file) => [".jpg", ".jpeg", ".png"].includes(extname(file).toLowerCase())
+        )
+
+        let convertedCount = 0
+        for (const file of imageFiles) {
+          const inputPath = join(imagesDir, file)
+          const fileName = basename(file, extname(file))
+          const outputPath = join(outputDir, `${fileName}.webp`)
+
+          try {
+            await sharp(inputPath)
+              .webp({ quality: 85 })
+              .toFile(outputPath)
+            convertedCount++
+          } catch (error) {
+            console.warn(`⚠️  Failed to convert ${file}:`, error)
+          }
+        }
+
+        if (convertedCount > 0) {
+          console.log(`✅ Converted ${convertedCount} images to WebP format`)
+        }
+      } catch (error) {
+        console.error("❌ Error converting images to WebP:", error)
+      }
+    },
+  }
+}
+
 export default defineConfig({
   plugins: [
     react(),
@@ -74,6 +118,7 @@ export default defineConfig({
       },
     }),
     imageCropPlugin(),
+    webpConvertPlugin(),
   ],
   server: { port: 3000 },
   build: { outDir: distFolder },

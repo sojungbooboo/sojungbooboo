@@ -4,29 +4,61 @@ import "./index.scss"
 
 // 실제 이미지 데이터 (13장)
 const baseUrl = import.meta.env.BASE_URL
-const images = [
-  `${baseUrl}images/1.jpeg`,
-  `${baseUrl}images/2.jpeg`,
-  `${baseUrl}images/3.jpeg`,
-  `${baseUrl}images/4.jpg`,
-  `${baseUrl}images/5.jpg`,
-  `${baseUrl}images/6.jpg`,
-  `${baseUrl}images/7.jpg`,
-  `${baseUrl}images/8.jpg`,
-  `${baseUrl}images/9.jpg`,
-  `${baseUrl}images/10.jpg`,
-  `${baseUrl}images/11.jpg`,
-  `${baseUrl}images/12.jpg`,
-  `${baseUrl}images/13.jpg`,
+const imageNames = [
+  "1.jpeg",
+  "2.jpeg",
+  "3.jpeg",
+  "4.jpg",
+  "5.jpg",
+  "6.jpg",
+  "7.jpg",
+  "8.jpg",
+  "9.jpg",
+  "10.jpg",
+  "11.jpg",
+  "12.jpg",
+  "13.jpg",
 ]
 
-// 이미지 프리패칭 함수
-const prefetchImage = (src: string): Promise<void> => {
-  return new Promise((resolve, reject) => {
+// 이미지 경로 생성 함수 (WebP 우선, 원본 fallback)
+const getImageSrc = (imageName: string) => {
+  const baseName = imageName.replace(/\.(jpg|jpeg)$/i, "")
+  return {
+    webp: `${baseUrl}images/${baseName}.webp`,
+    original: `${baseUrl}images/${imageName}`,
+  }
+}
+
+const images = imageNames.map(getImageSrc)
+
+// 이미지 프리패칭 함수 (WebP 우선, 실패 시 원본)
+const prefetchImage = (imageSrc: { webp: string; original: string }): Promise<void> => {
+  return new Promise((resolve) => {
+    // WebP 지원 여부 확인
+    const webpSupported = document.createElement("canvas").toDataURL("image/webp").indexOf("data:image/webp") === 0
+
     const img = new Image()
-    img.onload = () => resolve()
-    img.onerror = reject
-    img.src = src
+    let loaded = false
+
+    const onLoad = () => {
+      if (!loaded) {
+        loaded = true
+        resolve()
+      }
+    }
+
+    const onError = () => {
+      if (!loaded) {
+        // WebP 실패 시 원본 이미지 로드
+        img.src = imageSrc.original
+      }
+    }
+
+    img.onload = onLoad
+    img.onerror = onError
+
+    // WebP 지원 시 WebP 로드, 미지원 시 원본 로드
+    img.src = webpSupported ? imageSrc.webp : imageSrc.original
   })
 }
 
@@ -149,7 +181,10 @@ export const Gallery = () => {
                     className={`gallery-item ${isCurrent ? "current" : ""} ${isPrev ? "prev" : ""} ${isNext ? "next" : ""}`}
                     onClick={() => isCurrent && handleImageClick(idx)}
                   >
-                    <img src={images[idx]} alt={`Gallery ${idx + 1}`} loading="lazy" />
+                    <picture>
+                      <source srcSet={images[idx].webp} type="image/webp" />
+                      <img src={images[idx].original} alt={`Gallery ${idx + 1}`} />
+                    </picture>
                   </div>
                 )
               })}
@@ -176,7 +211,10 @@ export const Gallery = () => {
               <i className="fas fa-times"></i>
             </button>
             <div className="fullscreen-image-container" onClick={(e) => e.stopPropagation()}>
-              <img src={images[fullscreenIndex]} alt={`Gallery ${fullscreenIndex + 1}`} />
+              <picture>
+                <source srcSet={images[fullscreenIndex].webp} type="image/webp" />
+                <img src={images[fullscreenIndex].original} alt={`Gallery ${fullscreenIndex + 1}`} />
+              </picture>
               <button className="fullscreen-nav prev" onClick={handleFullscreenPrev}>
                 <i className="fas fa-chevron-left"></i>
               </button>
