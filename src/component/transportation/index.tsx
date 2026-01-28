@@ -9,21 +9,24 @@ export const Transportation = () => {
           <h3>버스</h3>
           <div className='transport-box'>
             <p className='line'>강남중학교(서울지방 병무청 앞 사거리) 하차</p>
-            <p className='detail bus-detail'>
-              <span className='bus-line-label'>간선</span>
-              <span className='bus-badge bus-badge--blue'>150</span>
-              <span className='bus-badge bus-badge--blue'>461</span>
-              <span className='bus-badge bus-badge--blue'>500</span>
-              <span className='bus-badge bus-badge--blue'>505</span>
-              <span className='bus-badge bus-badge--blue'>753</span>
-              <br />
-              <span className='bus-line-label'>지선</span>
-              <span className='bus-badge bus-badge--green'>5531</span>
-              <span className='bus-badge bus-badge--green'>5534</span>
-              <span className='bus-badge bus-badge--green'>5612</span>
-              <span className='bus-badge bus-badge--green'>5623</span>
-              <span className='bus-badge bus-badge--green'>5633</span>
-            </p>
+            <div className='detail bus-detail'>
+              <div className='bus-line'>
+                <span className='bus-line-label'>간선</span>
+                <span className='bus-badge bus-badge--blue'>150</span>
+                <span className='bus-badge bus-badge--blue'>461</span>
+                <span className='bus-badge bus-badge--blue'>500</span>
+                <span className='bus-badge bus-badge--blue'>505</span>
+                <span className='bus-badge bus-badge--blue'>753</span>
+              </div>
+              <div className='bus-line'>
+                <span className='bus-line-label'>지선</span>
+                <span className='bus-badge bus-badge--green'>5531</span>
+                <span className='bus-badge bus-badge--green'>5534</span>
+                <span className='bus-badge bus-badge--green'>5612</span>
+                <span className='bus-badge bus-badge--green'>5623</span>
+                <span className='bus-badge bus-badge--green'>5633</span>
+              </div>
+            </div>
           </div>
         </div>
 

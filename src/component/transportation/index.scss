@@ -44,7 +44,6 @@
         padding: 1.25rem 1.5rem;
         background-color: #fafafa;
         border-radius: 5px;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 
         .line {
           font-size: 0.95rem;
@@ -67,15 +66,21 @@
         // 버스 노선 전용 스타일
         .bus-detail {
           display: flex;
-          flex-wrap: wrap;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .bus-line {
+          display: flex;
           align-items: center;
+          flex-wrap: wrap;
           gap: 0.25rem 0.3rem;
         }
 
         .bus-line-label {
           font-size: 0.8rem;
           font-weight: 500;
-          color: var(--text-dark);
+          color: #555555;
           margin-right: 0.25rem;
         }
 
