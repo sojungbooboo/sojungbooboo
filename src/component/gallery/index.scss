@@ -31,13 +31,13 @@
 
         .gallery-item {
           position: absolute;
-          width: 95%;
-          height: 95%;
+          width: 100%;
+          height: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
           will-change: transform;
-          transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease;
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
 
           &.current {
             cursor: pointer;
@@ -55,23 +55,23 @@
           &.current {
             z-index: 10;
             left: 50%;
-            transform: translateX(-50%) scale(1);
+            transform: translateX(-50%);
             opacity: 1;
           }
 
           &.prev {
             z-index: 5;
             left: 0;
-            transform: translateX(calc(-100% - 20px)) scale(0.85);
-            opacity: 0.3;
+            transform: translateX(-100%);
+            opacity: 0;
             pointer-events: none;
           }
 
           &.next {
             z-index: 5;
             left: 100%;
-            transform: translateX(20px) scale(0.85);
-            opacity: 0.3;
+            transform: translateX(0);
+            opacity: 0;
             pointer-events: none;
           }
         }

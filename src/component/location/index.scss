@@ -12,7 +12,7 @@
       height: 300px;
       border-radius: 8px;
       overflow: hidden;
-      margin-bottom: 1rem;
+      margin-bottom: 2.5rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: relative;
 
@@ -51,15 +51,15 @@
       }
 
       .copy-button {
-        padding: 0.75rem 1.5rem;
+        padding: 0.5rem 0.9rem;
         background-color: var(--bg-white);
         color: var(--text-dark);
         border: 1px solid var(--border-color);
         border-radius: 6px;
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         cursor: pointer;
         transition: background-color 0.3s ease, border-color 0.3s ease;
-        width: 120px; // 주소 복사/복사됨 텍스트 변경 시 width 고정
+        width: 85px;
         text-align: center;
         box-sizing: border-box;
 
