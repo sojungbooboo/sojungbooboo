@@ -2,7 +2,7 @@
   text-align: center;
   width: 100%;
   min-height: 50vh; // 높이 절반으로 변경
-  padding: 3rem 1.5rem;
+  padding: 3rem 0; // 좌우 패딩 제거해 다른 섹션과 정렬
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

@@ -18,7 +18,7 @@
     gap: 1rem;
     width: 100%;
 
-    .date-line {
+      .date-line {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -32,7 +32,7 @@
 
       .date-text {
         font-family: "Cantata One", serif; // Cantata One 폰트 적용
-        font-size: 7rem; // 더 크게
+        font-size: 6rem; // 전체적으로 약 85%로 축소 (7rem -> 6rem)
         font-weight: 400; // 더 얇게
         color: var(--text-dark);
         letter-spacing: -0.02em; // 자간 축소 (0.02em -> -0.02em)
@@ -78,7 +78,7 @@
         gap: 0.15rem; // 글자 간 간격
 
         .date-text {
-          font-size: 5rem; // 모바일에서도 조금 더 크게
+          font-size: 4.2rem; // 모바일에서도 약 85%로 축소 (5rem -> 4.2rem)
           letter-spacing: -0.02em; // 자간 축소
         }
 
