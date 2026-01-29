@@ -12,16 +12,16 @@ export const DateInfo = () => {
     const container = containerRef.current
     if (!container) return
 
-    // 부모 섹션이 lazy-active가 되었는지 확인
-    const checkParent = () => {
-      const parent = container.closest(".section")
-      if (parent?.classList.contains("lazy-active")) {
-        // 약간의 딜레이 후 애니메이션 시작
-        setTimeout(() => {
-          setShowText(true)
-        }, 200)
+      // 부모 섹션이 lazy-active가 되었는지 확인
+      const checkParent = () => {
+        const parent = container.closest(".section")
+        if (parent?.classList.contains("lazy-active")) {
+          // 약간의 딜레이 후 애니메이션 시작
+          setTimeout(() => {
+            setShowText(true)
+          }, 400)
+        }
       }
-    }
 
     // MutationObserver로 부모 클래스 변경 감지
     const observer = new MutationObserver(checkParent)
@@ -51,13 +51,13 @@ export const DateInfo = () => {
               key={`month-${index}`}
               className="date-text month"
               style={{
-                transitionDelay: `${0.18 * index}s`,
+                transitionDelay: `${0.25 * index}s`,
               }}
             >
               {char}
             </span>
           ))}
-          <span className="date-text day" style={{ transitionDelay: "0.7s" }}>
+          <span className="date-text day" style={{ transitionDelay: "1.0s" }}>
             {day}
           </span>
         </div>
@@ -67,7 +67,7 @@ export const DateInfo = () => {
               key={`year-${index}`}
               className="date-text year"
               style={{
-                transitionDelay: `${0.9 + 0.12 * index}s`,
+                transitionDelay: `${1.3 + 0.18 * index}s`,
               }}
             >
               {char}
