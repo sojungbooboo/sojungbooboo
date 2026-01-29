@@ -93,10 +93,16 @@ export const Transportation = () => {
           </div>
           <div className='transport-boxes'>
             <div className='transport-box'>
-              <p className='line'>1호선 대방역 3번 출구</p>
+              <p className='line'>
+                <span className='subway-number subway-number--line1'>1</span>
+                <span className='subway-station'>대방역 3번 출구</span>
+              </p>
             </div>
             <div className='transport-box'>
-              <p className='line'>7호선 보라매역 5번 출구</p>
+              <p className='line'>
+                <span className='subway-number subway-number--line7'>7</span>
+                <span className='subway-station'>보라매역 5번 출구</span>
+              </p>
             </div>
           </div>
         </div>
