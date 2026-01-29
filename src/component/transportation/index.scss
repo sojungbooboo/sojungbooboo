@@ -141,19 +141,19 @@
           border-radius: 999px;
           font-size: 0.7rem;
           font-weight: 600;
-          color: #333;
+          color: #ffffff;
           letter-spacing: 0.01em;
-          background-color: #ffffff;
+          background-color: transparent;
           height: 16px;
-          border: 1px solid;
+          border: none;
         }
 
         .bus-badge--blue {
-          border-color: #1e88e5; // 간선 버스 (파란색)
+          background-color: #1e88e5; // 간선 버스 (파란색)
         }
 
         .bus-badge--green {
-          border-color: #43a047; // 지선 버스 (연두색 계열)
+          background-color: #43a047; // 지선 버스 (연두색 계열)
         }
 
         .parking-highlight {
@@ -173,24 +173,22 @@
           font-weight: 600;
           margin-right: 0;
           flex-shrink: 0;
+          color: #ffffff;
         }
 
         .subway-number--line1 {
-          color: #263c96;
-          border: 2px solid #263c96;
-          background-color: #ffffff;
+          background-color: #263c96;
+          border: none;
         }
 
         .subway-number--line7 {
-          color: #697215;
-          border: 2px solid #697215;
-          background-color: #ffffff;
+          background-color: #697215;
+          border: none;
         }
 
         .subway-number--sillim {
-          color: #4e6ca5;
-          border: 2px solid #4e6ca5;
-          background-color: transparent;
+          background-color: #4e6ca5;
+          border: none;
           width: auto;
           padding: 0 0.5rem;
           border-radius: 12px;

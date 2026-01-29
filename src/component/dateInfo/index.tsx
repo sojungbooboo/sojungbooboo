@@ -52,6 +52,7 @@ export const DateInfo = () => {
               className="date-text month"
               style={{
                 transitionDelay: `${0.25 * index}s`,
+                marginRight: index === 2 ? "2rem" : undefined,
               }}
             >
               {char}
