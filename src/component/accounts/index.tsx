@@ -84,16 +84,10 @@ export const Accounts = () => {
   const handleKakaoShare = () => {
     const currentUrl = window.location.href
 
-    // index.html의 제목/설명과 동일하게 맞춘 텍스트
-    const shareTitle = "중화 ❤️ 소현 결혼합니다."
-    const shareDescription = "2026년 3월 28일 토요일 오전 11시 30분 해군호텔 W웨딩홀"
-
     // Web Share API 사용 (모바일 네이티브 공유)
     if (navigator.share) {
       navigator
         .share({
-          title: shareTitle,
-          text: `${shareTitle}\n${shareDescription}`,
           url: currentUrl,
         })
         .catch((error) => {
