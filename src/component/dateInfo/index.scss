@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(var(--vh, 1vh) * 120); // 높이 증가 (100vh -> 120vh)
+  min-height: calc(var(--vh, 1vh) * 140); // 높이 증가 (100vh -> 140vh)
   overflow: hidden;
 
   .date-content {
@@ -31,24 +31,24 @@
       }
 
       .date-text {
-        font-family: "Bodoni Moda", serif; // Bodoni Moda 폰트 적용
+        font-family: "Cantata One", serif; // Cantata One 폰트 적용
         font-size: 7rem; // 더 크게
         font-weight: 600; // 더 두껍게
         color: var(--text-dark);
         letter-spacing: -0.02em; // 자간 축소 (0.02em -> -0.02em)
         opacity: 0;
-        transform: translateY(40px) scale(0.8);
-        filter: blur(4px);
+        transform: translateY(50px) scale(0.78);
+        filter: blur(6px);
         transition:
-          opacity 0.65s cubic-bezier(0.19, 1, 0.22, 1),
-          transform 0.65s cubic-bezier(0.19, 1, 0.22, 1),
-          filter 0.65s ease-out;
+          opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+          transform 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+          filter 0.9s ease-out;
         display: inline-block;
       }
 
       // 월(MAR)의 마지막 글자 뒤 간격을 더 넓게 (MAR 과 28 사이)
       .date-text.month:last-of-type {
-        margin-right: 0.8rem;
+        margin-right: 1.2rem; // 이전보다 더 넓게 (MAR  28 느낌)
       }
 
       // 연도(2026)는 자간을 조금 더 촘촘하게
@@ -69,7 +69,7 @@
 
 @media (max-width: 500px) {
   .date-info {
-    min-height: calc(var(--vh, 1vh) * 120); // 모바일에서도 높이 증가
+    min-height: calc(var(--vh, 1vh) * 140); // 모바일에서도 높이 증가
 
     .date-content {
       gap: 0.8rem;
@@ -87,7 +87,7 @@
         }
 
         .date-text.month:last-of-type {
-          margin-right: 0.6rem; // 모바일에서는 조금 더 좁게
+          margin-right: 1rem; // 모바일에서도 MAR  28 느낌으로 더 넓게
         }
       }
     }

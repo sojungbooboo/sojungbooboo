@@ -51,13 +51,13 @@ export const DateInfo = () => {
               key={`month-${index}`}
               className="date-text month"
               style={{
-                transitionDelay: `${0.1 * index}s`,
+                transitionDelay: `${0.18 * index}s`,
               }}
             >
               {char}
             </span>
           ))}
-          <span className="date-text day" style={{ transitionDelay: "0.4s" }}>
+          <span className="date-text day" style={{ transitionDelay: "0.7s" }}>
             {day}
           </span>
         </div>
@@ -67,7 +67,7 @@ export const DateInfo = () => {
               key={`year-${index}`}
               className="date-text year"
               style={{
-                transitionDelay: `${0.5 + 0.1 * index}s`,
+                transitionDelay: `${0.9 + 0.12 * index}s`,
               }}
             >
               {char}
