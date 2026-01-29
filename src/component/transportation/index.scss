@@ -57,7 +57,7 @@
       // 주차 영역의 detail 스타일
       &:has(.parking-note) {
         .transport-box .detail {
-          font-size: 0.85rem;
+          font-size: 0.95rem; // 상단 라인 텍스트(.line)와 동일한 크기로 조정
           color: var(--text-dark);
         }
       }
@@ -145,6 +145,7 @@
           letter-spacing: 0.01em;
           background-color: transparent;
           height: 16px;
+          line-height: 1;
           border: none;
         }
 
