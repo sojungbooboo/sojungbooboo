@@ -59,6 +59,9 @@
         .transport-box .detail {
           font-size: 0.95rem; // 상단 라인 텍스트(.line)와 동일한 크기로 조정
           color: var(--text-dark);
+          white-space: nowrap; // 모바일에서도 한 줄로 고정
+          overflow: hidden;
+          text-overflow: ellipsis; // 넘치는 부분은 ... 으로 표시
         }
       }
 
