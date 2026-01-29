@@ -7,15 +7,8 @@ const HERO_IMAGE = `${import.meta.env.BASE_URL}images/4.jpg`
 
 export const Cover = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [imageLoaded, setImageLoaded] = useState(false)
-  const imgRef = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
-    // 이미지가 이미 로드되어 있는 경우 (캐시된 경우)
-    if (imgRef.current?.complete) {
-      setImageLoaded(true)
-    }
-
     // 페이지 로드 시 Fade-in up 애니메이션
     const timer = setTimeout(() => {
       setIsVisible(true)
@@ -24,23 +17,17 @@ export const Cover = () => {
     return () => clearTimeout(timer)
   }, [])
 
-  const handleImageLoad = () => {
-    setImageLoaded(true)
-  }
-
   const formattedDate = WEDDING_DATE.format(WEDDING_DATE_FORMAT)
 
   return (
     <div className="cover">
       {/* 배경 이미지 */}
       <div className="hero-background">
-        {!imageLoaded && <div className="hero-placeholder"></div>}
         <img
           ref={imgRef}
           src={HERO_IMAGE}
           alt="Wedding Hero Background"
           onLoad={handleImageLoad}
-          style={{ opacity: imageLoaded ? 1 : 0 }}
           fetchPriority="high"
           loading="eager"
         />
