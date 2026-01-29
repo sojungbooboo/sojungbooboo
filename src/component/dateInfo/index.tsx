@@ -6,9 +6,7 @@ import "./index.scss"
 
 export const DateInfo = () => {
   const [showText, setShowText] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
-  const svgRef = useRef<SVGSVGElement>(null)
 
   useEffect(() => {
     const container = containerRef.current
@@ -39,62 +37,13 @@ export const DateInfo = () => {
     return () => observer.disconnect()
   }, [])
 
-  // 스크롤 기반 SVG 애니메이션
-  useEffect(() => {
-    const handleScroll = () => {
-      const container = containerRef.current
-      if (!container) return
-
-      const rect = container.getBoundingClientRect()
-      const windowHeight = window.innerHeight
-      
-      // 섹션이 뷰포트에 들어왔을 때만 애니메이션
-      if (rect.top < windowHeight && rect.bottom > 0) {
-        const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)))
-        setScrollProgress(progress)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll() // 초기 실행
-
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   // 날짜 포맷: MAR 28 2026 (영어 로케일로 포맷)
   const month = dayjs(WEDDING_DATE).locale("en").format("MMM").toUpperCase()
   const day = WEDDING_DATE.format("D")
   const year = WEDDING_DATE.format("YYYY")
 
-  // SVG 경로 애니메이션을 위한 pathLength 계산 (세로 곡선 하나)
-  const pathLength = 1600
-
   return (
     <div className="date-info" ref={containerRef}>
-      {/* SVG 배경 애니메이션 */}
-      <svg
-        ref={svgRef}
-        className="date-svg-background"
-        viewBox="0 0 500 1000"
-        preserveAspectRatio="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* 세로로 흐르는 곡선 하나 */}
-        <path
-          d="M 250,0 C 280,150 220,300 260,450 C 300,600 240,750 260,1000"
-          fill="none"
-          stroke="rgba(0, 0, 0, 0.08)"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          className="svg-path vertical-path"
-          style={{
-            strokeDasharray: pathLength,
-            strokeDashoffset: pathLength * (1 - scrollProgress),
-            transition: 'stroke-dashoffset 0.12s ease-out'
-          }}
-        />
-      </svg>
-
       <div className="date-content">
         <div className={`date-line ${showText ? "animate" : ""}`}>
           {month.split("").map((char, index) => (

@@ -8,22 +8,6 @@
   min-height: calc(var(--vh, 1vh) * 120); // 높이 증가 (100vh -> 120vh)
   overflow: hidden;
 
-  // SVG 배경
-  .date-svg-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.6;
-
-    .svg-path {
-      filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
-    }
-  }
-
   .date-content {
     position: relative;
     z-index: 1;
@@ -38,8 +22,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      // 월(MAR)과 일(28) 사이 간격 축소
-      gap: 0.15rem; // 0.3rem -> 0.15rem
+      // 기본 간격 (글자 간)
+      gap: 0.15rem;
       width: 100%;
 
       &.year-line {
@@ -53,9 +37,18 @@
         color: var(--text-dark);
         letter-spacing: -0.02em; // 자간 축소 (0.02em -> -0.02em)
         opacity: 0;
-        transform: translateY(30px) scale(0.8);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        transform: translateY(40px) scale(0.8);
+        filter: blur(4px);
+        transition:
+          opacity 0.65s cubic-bezier(0.19, 1, 0.22, 1),
+          transform 0.65s cubic-bezier(0.19, 1, 0.22, 1),
+          filter 0.65s ease-out;
         display: inline-block;
+      }
+
+      // 월(MAR)의 마지막 글자 뒤 간격을 더 넓게 (MAR 과 28 사이)
+      .date-text.month:last-of-type {
+        margin-right: 0.8rem;
       }
 
       // 연도(2026)는 자간을 조금 더 촘촘하게
@@ -66,7 +59,8 @@
       &.animate {
         .date-text {
           opacity: 1;
-          transform: translateY(0);
+          transform: translateY(0) scale(1);
+          filter: blur(0);
         }
       }
     }
@@ -81,7 +75,7 @@
       gap: 0.8rem;
 
       .date-line {
-        gap: 0.15rem; // 자간 축소
+        gap: 0.15rem; // 글자 간 간격
 
         .date-text {
           font-size: 5rem; // 모바일에서도 조금 더 크게
@@ -90,6 +84,10 @@
 
         .date-text.year {
           letter-spacing: -0.03em; // 연도 자간 축소
+        }
+
+        .date-text.month:last-of-type {
+          margin-right: 0.6rem; // 모바일에서는 조금 더 좁게
         }
       }
     }
