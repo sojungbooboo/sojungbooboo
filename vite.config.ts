@@ -10,6 +10,7 @@ const distFolder = "docs"
 // GitHub Pages 배포 시: const base = "/sojungbooboo/"
 // 로컬 개발 시: const base = "/"
 const base = "/sojungbooboo/"
+const absoluteBaseUrl = "https://sojungbooboo.github.io/sojungbooboo/"
 
 // 이미지를 정사각형으로 자르는 플러그인
 const imageCropPlugin = () => {
@@ -114,6 +115,7 @@ export default defineConfig({
           DESCRIPTION: "2026년 3월 28일 토요일 오전 11시 30분 해군호텔 W웨딩홀",
           KAKAO_MAP_API_KEY: "33ca32716a75107b1da61cc1b76a0f7a",
           BASE_URL: base,
+          ABSOLUTE_BASE_URL: absoluteBaseUrl,
         },
       },
     }),
