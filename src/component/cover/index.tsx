@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { GROOM_ENGLISH_NAME, BRIDE_ENGLISH_NAME, WEDDING_DATE, WEDDING_DATE_FORMAT, LOCATION } from "../../const"
 import "./index.scss"
 
@@ -24,10 +24,8 @@ export const Cover = () => {
       {/* 배경 이미지 */}
       <div className="hero-background">
         <img
-          ref={imgRef}
           src={HERO_IMAGE}
           alt="Wedding Hero Background"
-          onLoad={handleImageLoad}
           fetchPriority="high"
           loading="eager"
         />
