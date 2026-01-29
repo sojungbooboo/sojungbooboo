@@ -83,17 +83,22 @@ export const Accounts = () => {
 
   const handleKakaoShare = () => {
     const currentUrl = window.location.href
-    const shareText = "JUNGHWA & SOHYUN 결혼식 청첩장"
-    
+
+    // index.html의 제목/설명과 동일하게 맞춘 텍스트
+    const shareTitle = "중화 ❤️ 소현 결혼합니다."
+    const shareDescription = "2026년 3월 28일 토요일 오전 11시 30분 해군호텔 W웨딩홀"
+
     // Web Share API 사용 (모바일 네이티브 공유)
     if (navigator.share) {
-      navigator.share({
-        title: shareText,
-        text: shareText,
-        url: currentUrl,
-      }).catch((error) => {
-        console.log("공유 취소 또는 오류:", error)
-      })
+      navigator
+        .share({
+          title: shareTitle,
+          text: `${shareTitle}\n${shareDescription}`,
+          url: currentUrl,
+        })
+        .catch((error) => {
+          console.log("공유 취소 또는 오류:", error)
+        })
     } else {
       // Web Share API를 지원하지 않는 경우 (데스크톱 등)
       // URL을 클립보드에 복사하고 안내 메시지 표시
