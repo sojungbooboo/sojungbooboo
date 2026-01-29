@@ -48,8 +48,8 @@
 
       .date-text {
         font-family: "Bodoni Moda", serif; // Bodoni Moda 폰트 적용
-        font-size: 6rem;
-        font-weight: 400;
+        font-size: 7rem; // 더 크게
+        font-weight: 600; // 더 두껍게
         color: var(--text-dark);
         letter-spacing: -0.02em; // 자간 축소 (0.02em -> -0.02em)
         opacity: 0;
@@ -84,7 +84,7 @@
         gap: 0.15rem; // 자간 축소
 
         .date-text {
-          font-size: 4.5rem;
+          font-size: 5rem; // 모바일에서도 조금 더 크게
           letter-spacing: -0.02em; // 자간 축소
         }
 

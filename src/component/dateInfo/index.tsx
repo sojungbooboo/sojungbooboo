@@ -66,10 +66,8 @@ export const DateInfo = () => {
   const day = WEDDING_DATE.format("D")
   const year = WEDDING_DATE.format("YYYY")
 
-  // SVG 경로 애니메이션을 위한 pathLength 계산
-  const pathLength1 = 1000
-  const pathLength2 = 1200
-  const pathLength3 = 1100
+  // SVG 경로 애니메이션을 위한 pathLength 계산 (세로 곡선 하나)
+  const pathLength = 1600
 
   return (
     <div className="date-info" ref={containerRef}>
@@ -81,60 +79,18 @@ export const DateInfo = () => {
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* 첫 번째 곡선 */}
+        {/* 세로로 흐르는 곡선 하나 */}
         <path
-          d="M 0,200 Q 100,150 200,200 T 400,200 T 500,200"
+          d="M 250,0 C 280,150 220,300 260,450 C 300,600 240,750 260,1000"
           fill="none"
-          stroke="rgba(0, 0, 0, 0.05)"
-          strokeWidth="2"
+          stroke="rgba(0, 0, 0, 0.08)"
+          strokeWidth="2.2"
           strokeLinecap="round"
-          className="svg-path path-1"
+          className="svg-path vertical-path"
           style={{
-            strokeDasharray: pathLength1,
-            strokeDashoffset: pathLength1 * (1 - scrollProgress * 0.8),
-            transition: 'stroke-dashoffset 0.1s ease-out'
-          }}
-        />
-        {/* 두 번째 곡선 */}
-        <path
-          d="M 0,400 Q 150,350 300,400 T 500,400"
-          fill="none"
-          stroke="rgba(0, 0, 0, 0.05)"
-          strokeWidth="2"
-          strokeLinecap="round"
-          className="svg-path path-2"
-          style={{
-            strokeDasharray: pathLength2,
-            strokeDashoffset: pathLength2 * (1 - scrollProgress * 0.7),
-            transition: 'stroke-dashoffset 0.1s ease-out'
-          }}
-        />
-        {/* 세 번째 곡선 */}
-        <path
-          d="M 0,600 Q 120,550 250,600 T 500,600"
-          fill="none"
-          stroke="rgba(0, 0, 0, 0.05)"
-          strokeWidth="2"
-          strokeLinecap="round"
-          className="svg-path path-3"
-          style={{
-            strokeDasharray: pathLength3,
-            strokeDashoffset: pathLength3 * (1 - scrollProgress * 0.9),
-            transition: 'stroke-dashoffset 0.1s ease-out'
-          }}
-        />
-        {/* 네 번째 곡선 (하단) */}
-        <path
-          d="M 0,800 Q 200,750 400,800 T 500,800"
-          fill="none"
-          stroke="rgba(0, 0, 0, 0.05)"
-          strokeWidth="2"
-          strokeLinecap="round"
-          className="svg-path path-4"
-          style={{
-            strokeDasharray: pathLength1,
-            strokeDashoffset: pathLength1 * (1 - scrollProgress * 0.6),
-            transition: 'stroke-dashoffset 0.1s ease-out'
+            strokeDasharray: pathLength,
+            strokeDashoffset: pathLength * (1 - scrollProgress),
+            transition: 'stroke-dashoffset 0.12s ease-out'
           }}
         />
       </svg>
