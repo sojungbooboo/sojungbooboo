@@ -57,11 +57,9 @@
       // 주차 영역의 detail 스타일
       &:has(.parking-note) {
         .transport-box .detail {
-          font-size: 0.95rem; // 상단 라인 텍스트(.line)와 동일한 크기로 조정
+          font-size: 0.95rem; // 기본은 상단 라인 텍스트(.line)와 비슷한 크기
           color: var(--text-dark);
-          white-space: nowrap; // 모바일에서도 한 줄로 고정
-          overflow: hidden;
-          text-overflow: ellipsis; // 넘치는 부분은 ... 으로 표시
+          white-space: nowrap; // 줄 바꿈 없이 한 줄로 고정
         }
       }
 
@@ -219,6 +217,21 @@
         }
       }
 
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .transportation {
+    .content {
+      .transport-section {
+        // 모바일에서 주차 안내 문구는 기기 너비에 맞춰 더 작게 조정
+        &:has(.parking-note) {
+          .transport-box .detail {
+            font-size: min(0.9rem, 3vw);
+          }
+        }
+      }
     }
   }
 }
