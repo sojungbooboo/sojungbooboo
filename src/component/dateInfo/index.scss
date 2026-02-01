@@ -40,9 +40,9 @@
         transform: translateY(50px) scale(0.78);
         filter: blur(6px);
         transition:
-          opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-          transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-          filter 0.6s ease-out;
+          opacity 0.95s cubic-bezier(0.19, 1, 0.22, 1),
+          transform 0.95s cubic-bezier(0.19, 1, 0.22, 1),
+          filter 0.95s ease-out;
         display: inline-block;
       }
 

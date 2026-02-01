@@ -18,7 +18,7 @@ export const DateInfo = () => {
         if (parent?.classList.contains("lazy-active")) {
           setTimeout(() => {
             setShowText(true)
-          }, 200)
+          }, 300)
         }
       }
 
@@ -50,14 +50,14 @@ export const DateInfo = () => {
               key={`month-${index}`}
               className="date-text month"
               style={{
-                transitionDelay: `${0.1 * index}s`,
+                transitionDelay: `${0.16 * index}s`,
                 marginRight: index === 2 ? "2rem" : undefined,
               }}
             >
               {char}
             </span>
           ))}
-          <span className="date-text day" style={{ transitionDelay: "0.4s" }}>
+          <span className="date-text day" style={{ transitionDelay: "0.65s" }}>
             {day}
           </span>
         </div>
@@ -67,7 +67,7 @@ export const DateInfo = () => {
               key={`year-${index}`}
               className="date-text year"
               style={{
-                transitionDelay: `${0.55 + 0.08 * index}s`,
+                transitionDelay: `${0.85 + 0.12 * index}s`,
               }}
             >
               {char}
