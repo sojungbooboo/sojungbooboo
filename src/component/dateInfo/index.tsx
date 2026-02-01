@@ -16,10 +16,9 @@ export const DateInfo = () => {
       const checkParent = () => {
         const parent = container.closest(".section")
         if (parent?.classList.contains("lazy-active")) {
-          // 약간의 딜레이 후 애니메이션 시작
           setTimeout(() => {
             setShowText(true)
-          }, 400)
+          }, 200)
         }
       }
 
@@ -51,14 +50,14 @@ export const DateInfo = () => {
               key={`month-${index}`}
               className="date-text month"
               style={{
-                transitionDelay: `${0.25 * index}s`,
+                transitionDelay: `${0.1 * index}s`,
                 marginRight: index === 2 ? "2rem" : undefined,
               }}
             >
               {char}
             </span>
           ))}
-          <span className="date-text day" style={{ transitionDelay: "1.0s" }}>
+          <span className="date-text day" style={{ transitionDelay: "0.4s" }}>
             {day}
           </span>
         </div>
@@ -68,7 +67,7 @@ export const DateInfo = () => {
               key={`year-${index}`}
               className="date-text year"
               style={{
-                transitionDelay: `${1.3 + 0.18 * index}s`,
+                transitionDelay: `${0.55 + 0.08 * index}s`,
               }}
             >
               {char}
