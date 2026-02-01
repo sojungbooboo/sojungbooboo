@@ -89,8 +89,8 @@ body {
 }
 
 .section {
-  min-height: calc(var(--vh, 1vh) * 100);
-  padding: 4rem 1.5rem;
+  min-height: calc(var(--vh, 1vh) * 58);
+  padding: 2.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -180,7 +180,7 @@ body {
 
 .accounts-section {
   background-color: var(--bg-white);
-  min-height: 50vh; // 높이 절반으로 변경
+  min-height: auto;
 }
 
 // 카카오맵 인포윈도우 화살표 제거
@@ -226,13 +226,13 @@ h2 {
 
 @media (max-width: 500px) {
   .section {
-    padding: 3rem 1.25rem;
-    min-height: calc(var(--vh, 1vh) * 100);
+    padding: 2rem 1.25rem;
+    min-height: calc(var(--vh, 1vh) * 58);
   }
 
   h2 {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 }
 

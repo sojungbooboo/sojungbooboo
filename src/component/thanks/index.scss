@@ -1,11 +1,11 @@
 // 감사인사 텍스트 섹션 (강제 스타일 적용)
 .thanks-text-section {
   width: 100% !important;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 58);
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 60px 20px !important;
+  padding: 2.5rem 1.25rem !important;
   background-color: #ffffff !important; // 완전한 화이트 배경 강제
   opacity: 0;
   transform: translateY(40px) scale(0.96);
@@ -58,7 +58,7 @@
     margin: 0 auto !important;
 
     h2 {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     .content {
@@ -165,7 +165,7 @@
 
 @media (max-width: 500px) {
   .thanks-text-section {
-    padding: 60px 20px !important; // 모바일에서도 충분한 여백
+    padding: 2rem 1.25rem !important;
 
     .thanks {
       max-width: 100% !important; // 모바일에서 전체 너비 사용
