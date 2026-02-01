@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(var(--vh, 1vh) * 72);
+  min-height: calc(var(--vh, 1vh) * 78);
   overflow: hidden;
 
   .date-content {
@@ -69,7 +69,7 @@
 
 @media (max-width: 500px) {
   .date-info {
-    min-height: calc(var(--vh, 1vh) * 72);
+    min-height: calc(var(--vh, 1vh) * 78);
 
     .date-content {
       gap: 0.8rem;

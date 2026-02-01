@@ -10,9 +10,12 @@
     max-width: 500px;
     margin: 0 auto;
 
-    .groom,
-    .bride {
+    .groom {
       margin-bottom: 2rem;
+    }
+
+    .bride {
+      margin-bottom: 0;
 
       .parents {
         font-size: 0.9rem;
