@@ -14,11 +14,11 @@ export const WEDDING_DATE = dayjs.tz("2026-03-28 11:30", "Asia/Seoul")
 export const WEDDING_DATE_FORMAT = "YYYY년 M월 D일 dddd A h시 m분"
 
 export const LOCATION = "해군호텔 W웨딩홀 본관 노블레스홀"
-export const LOCATION_ADDRESS = "서울 영등포구 가마산로 538"
+export const LOCATION_ADDRESS = "서울특별시 영등포구 가마산로 540"
 
 // 지도 좌표 (해군호텔 W웨딩홀 본관 노블레스홀)
 // [경도, 위도] 형식
-export const WEDDING_HALL_POSITION = [126.91835, 37.52174]
+export const WEDDING_HALL_POSITION = [126.9156, 37.50359]
 
 // 카카오 지도 장소 ID (실제 ID로 수정 필요)
 export const KMAP_PLACE_ID = 0
