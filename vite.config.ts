@@ -35,22 +35,16 @@ const imageCropPlugin = () => {
           return
         }
 
-        // 정사각형 크기 계산 (짧은 쪽 기준)
-        const size = Math.min(width, height)
-
-        // 중요한 부분(얼굴 등)을 자동 감지하여 정사각형으로 자르기
+        // 3:4(가로:세로) 비율로 중요한 부분(얼굴 등)을 자동 감지하여 크롭
         await sharp(sourceImage)
-          .resize(size, size, {
+          .resize(1200, 1600, {
             fit: "cover",
             position: "attention", // 중요한 부분(얼굴 등)을 자동 감지
-          })
-          .resize(1200, 1200, {
-            fit: "cover",
           })
           .jpeg({ quality: 90 })
           .toFile(outputImage)
 
-        console.log(`✅ Preview image created: ${outputImage} (${size}x${size} → 1200x1200)`)
+        console.log(`✅ Preview image created: ${outputImage} → 1200x1600 (3:4 aspect ratio)`)
       } catch (error) {
         console.error("❌ Error creating preview image:", error)
       }
