@@ -38,11 +38,11 @@ const imageCropPlugin = () => {
         // 정사각형 크기 계산 (짧은 쪽 기준)
         const size = Math.min(width, height)
 
-        // 아래쪽 기준으로 정사각형으로 자르기
+        // 중요한 부분(얼굴 등)을 자동 감지하여 정사각형으로 자르기
         await sharp(sourceImage)
           .resize(size, size, {
             fit: "cover",
-            position: "bottom",
+            position: "attention", // 중요한 부분(얼굴 등)을 자동 감지
           })
           .resize(1200, 1200, {
             fit: "cover",
