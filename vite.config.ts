@@ -17,7 +17,7 @@ const imageCropPlugin = () => {
   return {
     name: "image-crop",
     async writeBundle() {
-      const sourceImage = join(process.cwd(), "public", "images", "1.jpeg")
+      const sourceImage = join(process.cwd(), "public", "images", "10.jpg")
       const outputImage = join(process.cwd(), distFolder, "preview_image.jpg")
 
       if (!existsSync(sourceImage)) {

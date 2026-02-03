@@ -2,10 +2,9 @@ import { useState, useEffect, useCallback, useMemo } from "react"
 import { createPortal } from "react-dom"
 import "./index.scss"
 
-// 실제 이미지 데이터 (13장)
+// 실제 이미지 데이터 (12장)
 const baseUrl = import.meta.env.BASE_URL
 const imageNames = [
-  "1.jpeg",
   "2.jpeg",
   "3.jpeg",
   "4.jpg",
