@@ -110,6 +110,7 @@ export default defineConfig({
           KAKAO_MAP_API_KEY: "33ca32716a75107b1da61cc1b76a0f7a",
           BASE_URL: base,
           ABSOLUTE_BASE_URL: absoluteBaseUrl,
+          PREVIEW_IMAGE_VERSION: Date.now().toString(), // 캐시 무효화를 위한 버전 번호
         },
       },
     }),
