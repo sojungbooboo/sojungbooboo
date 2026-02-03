@@ -35,16 +35,16 @@ const imageCropPlugin = () => {
           return
         }
 
-        // 3:4(가로:세로) 비율로 중요한 부분(얼굴 등)을 자동 감지하여 크롭
+        // 4:3(가로:세로) 가로 비율로, 아래쪽 기준으로 크롭
         await sharp(sourceImage)
-          .resize(1200, 1600, {
+          .resize(1600, 1200, {
             fit: "cover",
-            position: "attention", // 중요한 부분(얼굴 등)을 자동 감지
+            position: "bottom", // 아래쪽 기준으로 얼굴이 잘리지 않도록
           })
           .jpeg({ quality: 90 })
           .toFile(outputImage)
 
-        console.log(`✅ Preview image created: ${outputImage} → 1200x1600 (3:4 aspect ratio)`)
+        console.log(`✅ Preview image created: ${outputImage} → 1600x1200 (4:3 aspect ratio, bottom aligned)`)
       } catch (error) {
         console.error("❌ Error creating preview image:", error)
       }
