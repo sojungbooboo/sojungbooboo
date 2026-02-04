@@ -19,15 +19,7 @@
       &:nth-child(7) { transition-delay: 0.6s; }
 
       .value {
-        position: relative;
-        display: inline-block;
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        transform-origin: center;
-        overflow: hidden;
-        
-        &.flip {
-          animation: flipUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        transition: transform 0.3s ease;
       }
     }
 
@@ -97,25 +89,6 @@
         margin: 0 0.2rem;
       }
     }
-  }
-}
-
-@keyframes flipUp {
-  0% {
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: rotateX(90deg);
-    opacity: 0;
-  }
-  51% {
-    transform: rotateX(-90deg);
-    opacity: 0;
-  }
-  100% {
-    transform: rotateX(0deg);
-    opacity: 1;
   }
 }
 

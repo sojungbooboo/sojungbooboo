@@ -199,35 +199,6 @@ div[style*="triangle.png"] {
   }
 }
 
-// 카카오맵 인포윈도우 커스텀 스타일 (전역)
-.custom-infowindow {
-  background-color: rgba(0, 0, 0, 0.7) !important;
-  border-radius: 6px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
-  color: #ffffff !important;
-  font-size: 12px !important;
-  
-  div {
-    color: #ffffff !important;
-  }
-  
-  strong {
-    font-weight: 600 !important;
-    font-size: 12px !important;
-  }
-}
-
-// 카카오맵 인포윈도우 기본 스타일 오버라이드
-div[class*="infoWindow"] {
-  background-color: rgba(0, 0, 0, 0.7) !important;
-  border-radius: 6px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
-  
-  div {
-    color: #ffffff !important;
-    font-size: 12px !important;
-  }
-}
 
 h1,
 h2,
