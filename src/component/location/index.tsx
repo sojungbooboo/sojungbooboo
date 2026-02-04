@@ -54,9 +54,9 @@ export const Location = () => {
         marker.setMap(map)
 
         const infowindow = new kakao.maps.InfoWindow({
-          content: `<div style="padding:12px 16px;font-size:14px;text-align:center;line-height:1.5;min-width:180px;">
-            <strong>해군호텔 W웨딩홀</strong><br/>
-            <strong>본관 노블레스홀</strong>
+          content: `<div class="custom-infowindow" style="padding:10px 14px;text-align:center;line-height:1.4;min-width:160px;background-color:rgba(0,0,0,0.7);border-radius:6px;">
+            <div style="font-size:12px;color:#ffffff;font-weight:600;">해군호텔 W웨딩홀</div>
+            <div style="font-size:11px;color:#ffffff;margin-top:2px;">본관 노블레스홀</div>
           </div>`,
         })
 
