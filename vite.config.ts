@@ -105,7 +105,7 @@ export default defineConfig({
       inject: {
         data: {
           GROOM_NAME: "JUNGHWA",
-          BRIDE_NAME: "SOHYUN",
+          BRIDE_NAME: "SOHYEON",
           DESCRIPTION: "2026년 3월 28일 토요일 오전 11시 30분 해군호텔 W웨딩홀",
           KAKAO_MAP_API_KEY: "33ca32716a75107b1da61cc1b76a0f7a",
           BASE_URL: base,

@@ -37,7 +37,7 @@ export const GROOM_MOTHER = "노옥래"
 
 // 신부 정보
 export const BRIDE_FULLNAME = "신소현"
-export const BRIDE_ENGLISH_NAME = "Shin So Hyun"
+export const BRIDE_ENGLISH_NAME = "Shin So Hyeon"
 export const BRIDE_BIRTHDATE = "97년 7월 31일"
 export const BRIDE_FATHER = "신종화"
 export const BRIDE_MOTHER = "김경란"
